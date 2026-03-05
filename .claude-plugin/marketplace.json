@@ -1,0 +1,20 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "ali-plugins",
+  "description": "Org-wide agents and skills for Aliunde projects",
+  "owner": { "name": "Aliunde" },
+  "plugins": [
+    {
+      "name": "ali-core",
+      "description": "Core agents and skills for all Aliunde projects",
+      "source": "./packs/ali-core",
+      "version": "1.0.0"
+    },
+    {
+      "name": "ali-data-warehouse",
+      "description": "Snowflake, dbt, and data warehouse agents and skills",
+      "source": "./packs/ali-data-warehouse",
+      "version": "1.0.0"
+    }
+  ]
+}

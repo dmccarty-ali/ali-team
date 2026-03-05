@@ -1,0 +1,5 @@
+{
+  "name": "ali-data-warehouse",
+  "description": "Snowflake, dbt, and data warehouse agents and skills",
+  "author": { "name": "Aliunde" }
+}
