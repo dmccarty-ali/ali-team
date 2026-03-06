@@ -1,15 +1,15 @@
-# ali-plugins
+# ali-team
 
 Org-wide Claude Code plugin packs for Aliunde projects.
 
 ## Register the marketplace
 
-    claude plugin marketplace add dmccarty-ali/ali-plugins
+    claude plugin marketplace add dmccarty-ali/ali-team
 
 ## Install a pack
 
-    claude plugin install ali-core@ali-plugins
-    claude plugin install ali-data-warehouse@ali-plugins
+    claude plugin install ali-core@ali-team
+    claude plugin install ali-data-warehouse@ali-team
 
 ## Available packs
 

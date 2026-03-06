@@ -1,6 +1,6 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
-  "name": "ali-plugins",
+  "name": "ali-team",
   "description": "Org-wide agents and skills for Aliunde projects",
   "owner": { "name": "Aliunde" },
   "plugins": [
