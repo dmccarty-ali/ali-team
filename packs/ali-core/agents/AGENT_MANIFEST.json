@@ -1,0 +1,2929 @@
+{
+  "generated_at": "2026-03-01T23:41:38.404553+00:00",
+  "source_dir": "/Users/donmccarty/ali-ai/agents",
+  "agents": [
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-actuarial-expert.md",
+      "name": "ali-actuarial-expert",
+      "description": "Actuarial expert for reviewing reserving methodologies, loss development triangles,\ncredibility analysis, insurance analytics, and medical malpractice actuarial work.\nUse for IBNR calculations, reserve adequacy, development factor selection, credibility\nweighting, and regulatory compliance (ASOP 43, NAIC Schedule P).",
+      "domains": [
+        "actuarial",
+        "insurance",
+        "reserving",
+        "loss-development",
+        "credibility",
+        "medical-malpractice",
+        "ibnr"
+      ],
+      "keywords": [
+        "triangle",
+        "chain-ladder",
+        "bornhuetter-ferguson",
+        "cape-cod",
+        "ibnr",
+        "reserve",
+        "credibility",
+        "loss-ratio",
+        "combined-ratio",
+        "frequency",
+        "severity",
+        "pure-premium",
+        "tail-factor",
+        "development-factor",
+        "claims-made",
+        "occurrence",
+        "reinsurance",
+        "naic",
+        "schedule-p",
+        "actuarial",
+        "underwriting",
+        "earned-premium",
+        "incurred-loss",
+        "paid-loss",
+        "case-reserve",
+        "chainladder",
+        "scipy",
+        "pareto",
+        "lognormal",
+        "weibull"
+      ],
+      "file_patterns": [
+        "**/actuarial/**",
+        "**/reserving/**",
+        "**/triangles/**",
+        "**/insurance/**",
+        "**/claims/**",
+        "**/*triangle*.py",
+        "**/*reserve*.py",
+        "**/*actuarial*.py",
+        "**/*ibnr*.py"
+      ],
+      "anti_keywords": [
+        "frontend",
+        "react",
+        "typescript",
+        "kubernetes",
+        "docker",
+        "terraform"
+      ],
+      "anti_file_patterns": []
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-ai-expert.md",
+      "name": "ali-ai-expert",
+      "description": "AI development expert for reviewing Claude integrations, prompt engineering,\nagent architectures, model selection, and cost optimization. Use for reviewing\nAI-powered features, validating prompt designs, auditing agent patterns, and\nchecking API integration best practices.",
+      "domains": [
+        "ai",
+        "llm",
+        "agents",
+        "prompts",
+        "anthropic"
+      ],
+      "keywords": [
+        "Claude",
+        "Anthropic",
+        "LLM",
+        "prompt",
+        "agent",
+        "AI",
+        "model",
+        "GPT",
+        "embeddings",
+        "RAG",
+        "retrieval",
+        "token",
+        "streaming",
+        "tool use",
+        "function calling"
+      ],
+      "file_patterns": [
+        "**/ai/**",
+        "**/llm/**",
+        "**/agents/**",
+        "**/prompts/**",
+        "**/*_ai.py",
+        "**/*_llm.py"
+      ],
+      "anti_keywords": [
+        "database only",
+        "infrastructure only"
+      ],
+      "anti_file_patterns": []
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-airflow-expert.md",
+      "name": "ali-airflow-expert",
+      "description": "Apache Airflow expert for reviewing DAGs, operators, task dependencies,\nand workflow patterns. Use for formal reviews of DAG design, error handling,\nand orchestration patterns.",
+      "domains": [
+        "airflow",
+        "orchestration",
+        "workflow",
+        "etl"
+      ],
+      "keywords": [
+        "Airflow",
+        "DAG",
+        "operator",
+        "task",
+        "TaskGroup",
+        "sensor",
+        "Astro",
+        "workflow",
+        "orchestration",
+        "schedule",
+        "trigger",
+        "XCom"
+      ],
+      "file_patterns": [
+        "**/dags/**",
+        "**/airflow/**",
+        "**/operators/**",
+        "**/*_dag.py"
+      ],
+      "anti_keywords": [
+        "frontend",
+        "UI only"
+      ],
+      "anti_file_patterns": []
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-aws-admin.md",
+      "name": "ali-aws-admin",
+      "description": "AWS operations administrator for executing AWS CLI commands safely.\nUse this agent for ALL AWS operations - infrastructure, deployments, IAM, networking.\nEnforces security rules, cost awareness, SDLC environment protection, and\nmaintains audit trail. Other sessions should delegate AWS operations here.",
+      "domains": [],
+      "keywords": [],
+      "file_patterns": [],
+      "anti_keywords": [],
+      "anti_file_patterns": []
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-aws-expert.md",
+      "name": "ali-aws-expert",
+      "description": "AWS solutions architect for reviewing cloud infrastructure, IAM policies,\nS3 configurations, Lambda functions, ECS/Fargate deployments, and VPC\nnetworking. Use for security reviews, cost optimization, and architecture\nvalidation against AWS Well-Architected Framework.",
+      "domains": [
+        "aws",
+        "cloud",
+        "infrastructure",
+        "serverless"
+      ],
+      "keywords": [
+        "AWS",
+        "Lambda",
+        "S3",
+        "IAM",
+        "ECS",
+        "Fargate",
+        "Aurora",
+        "RDS",
+        "VPC",
+        "CloudWatch",
+        "SQS",
+        "SNS",
+        "DynamoDB",
+        "Secrets Manager",
+        "Parameter Store",
+        "CloudFormation"
+      ],
+      "file_patterns": [
+        "**/*.tf",
+        "**/cloudformation/**",
+        "**/infrastructure/**",
+        "**/lambda/**",
+        "**/*_lambda.py",
+        "**/ecs/**"
+      ],
+      "anti_keywords": [
+        "Azure",
+        "GCP",
+        "local only"
+      ],
+      "anti_file_patterns": []
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-azure-fabric-expert.md",
+      "name": "ali-azure-fabric-expert",
+      "description": "Microsoft Fabric expert for reviewing workspace architecture, Git integration,\ndeployment strategies, data engineering patterns, security configuration, and\ndisaster recovery planning. Use for formal reviews of Fabric SOWs, architecture\ndecisions, Git workflows, and production readiness assessments.",
+      "domains": [
+        "microsoft-fabric",
+        "azure",
+        "fabric",
+        "power-bi",
+        "data-platform",
+        "analytics"
+      ],
+      "keywords": [
+        "Fabric",
+        "Microsoft Fabric",
+        "OneLake",
+        "Power BI",
+        "workspace",
+        "Dataflow Gen2",
+        "Data Pipeline",
+        "Lakehouse",
+        "Warehouse",
+        "Git integration",
+        "Azure DevOps",
+        "capacity",
+        "semantic model",
+        "medallion architecture"
+      ],
+      "file_patterns": [
+        "**/*fabric*.md",
+        "**/*powerbi*.md",
+        "**/*onelake*",
+        "**/fabric/**",
+        "**/*workspace*",
+        "**/*dataflow*",
+        "**/*pipeline*.json"
+      ],
+      "anti_keywords": [
+        "AWS only",
+        "GCP only",
+        "Snowflake only"
+      ],
+      "anti_file_patterns": []
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-backend-developer.md",
+      "name": "ali-backend-developer",
+      "description": "Backend developer for implementing APIs, services, workflows, and backend\narchitecture. Covers FastAPI, Django, Flask, Express/NestJS, LangGraph,\nand Airflow patterns. Use for building API endpoints, service layer\nimplementation, workflow creation, and backend feature development.",
+      "domains": [
+        "backend",
+        "api",
+        "services",
+        "workflows",
+        "server"
+      ],
+      "keywords": [
+        "FastAPI",
+        "Django",
+        "Flask",
+        "Express",
+        "NestJS",
+        "API",
+        "endpoint",
+        "router",
+        "service",
+        "repository",
+        "dependency injection",
+        "middleware",
+        "LangGraph",
+        "Airflow",
+        "DAG",
+        "workflow",
+        "async",
+        "await",
+        "Pydantic",
+        "REST",
+        "GraphQL",
+        "implement",
+        "create",
+        "build",
+        "develop",
+        "write"
+      ],
+      "file_patterns": [
+        "**/api/**",
+        "**/routers/**",
+        "**/routes/**",
+        "**/endpoints/**",
+        "**/services/**",
+        "**/repositories/**",
+        "**/domain/**",
+        "**/dags/**",
+        "**/workflows/**",
+        "**/graphs/**",
+        "**/*.py"
+      ],
+      "anti_keywords": [
+        "frontend only",
+        "React only",
+        "UI only",
+        "Terraform",
+        "infrastructure",
+        "review only",
+        "audit only"
+      ],
+      "anti_file_patterns": [
+        "**/skills/**/SKILL.md",
+        "**/agents/**/*.md",
+        "**/*.sh",
+        "**/CLAUDE.md",
+        "**/ARCHITECTURE.md",
+        "**/README.md"
+      ]
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-backend-expert.md",
+      "name": "ali-backend-expert",
+      "description": "Backend development expert for reviewing APIs, services, workflows, and\nbackend architecture. Covers FastAPI, Django, Flask, Express/NestJS, LangGraph,\nand Airflow patterns. Use for formal reviews of API design, service layer\narchitecture, workflow implementation, and backend security.",
+      "domains": [
+        "backend",
+        "api",
+        "services",
+        "workflows",
+        "server"
+      ],
+      "keywords": [
+        "FastAPI",
+        "Django",
+        "Flask",
+        "Express",
+        "NestJS",
+        "API",
+        "endpoint",
+        "router",
+        "service",
+        "repository",
+        "dependency injection",
+        "middleware",
+        "LangGraph",
+        "Airflow",
+        "DAG",
+        "workflow",
+        "async",
+        "await",
+        "Pydantic",
+        "REST",
+        "GraphQL"
+      ],
+      "file_patterns": [
+        "**/api/**",
+        "**/routers/**",
+        "**/routes/**",
+        "**/endpoints/**",
+        "**/services/**",
+        "**/repositories/**",
+        "**/domain/**",
+        "**/dags/**",
+        "**/workflows/**",
+        "**/graphs/**",
+        "**/*.py"
+      ],
+      "anti_keywords": [
+        "frontend only",
+        "React only",
+        "UI only",
+        "Terraform",
+        "infrastructure"
+      ],
+      "anti_file_patterns": []
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-bash-developer.md",
+      "name": "ali-bash-developer",
+      "description": "Bash developer for implementing shell scripts, automation workflows, hooks,\nand deployment scripts. Covers bash/sh/zsh scripting patterns, error handling,\nsecurity, and portability. Use for building scripts, implementing automation,\ncreating hooks, fixing shell script bugs, and adding error handling.",
+      "domains": [
+        "bash",
+        "shell",
+        "scripting",
+        "automation",
+        "unix",
+        "linux"
+      ],
+      "keywords": [
+        "bash",
+        "shell",
+        "sh",
+        "zsh",
+        "script",
+        "automation",
+        "implement",
+        "create",
+        "build",
+        "develop",
+        "write",
+        "fix"
+      ],
+      "file_patterns": [
+        "**/*.sh",
+        "**/*.bash",
+        "**/scripts/**",
+        "**/bin/**",
+        "**/hooks/**",
+        "**/Makefile"
+      ],
+      "anti_keywords": [
+        "review only",
+        "audit only",
+        "python",
+        "javascript",
+        "terraform"
+      ],
+      "anti_file_patterns": [
+        "**/skills/**/SKILL.md",
+        "**/agents/**/*.md",
+        "**/CLAUDE.md",
+        "**/ARCHITECTURE.md",
+        "**/README.md"
+      ]
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-bash-expert.md",
+      "name": "ali-bash-expert",
+      "description": "Bash expert for reviewing shell scripts, diagnosing errors, advising on automation,\nand validating shell script best practices. Use for script reviews, security analysis,\nperformance assessment, and best practice validation.",
+      "domains": [
+        "bash",
+        "shell",
+        "scripting",
+        "automation",
+        "unix",
+        "linux"
+      ],
+      "keywords": [
+        "bash",
+        "shell",
+        "sh",
+        "zsh",
+        "script",
+        "shebang",
+        "chmod",
+        "pipe",
+        "grep",
+        "sed",
+        "awk",
+        "find",
+        "xargs",
+        "cron",
+        "shellcheck",
+        "set -e",
+        "set -u",
+        "trap",
+        "getopts",
+        "subprocess",
+        "exec",
+        "source"
+      ],
+      "file_patterns": [
+        "**/*.sh",
+        "**/*.bash",
+        "**/scripts/**",
+        "**/bin/**",
+        "**/hooks/**",
+        "**/Makefile"
+      ],
+      "anti_keywords": [
+        "python",
+        "javascript",
+        "java",
+        "frontend",
+        "react",
+        "database",
+        "sql",
+        "css"
+      ],
+      "anti_file_patterns": []
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-claude-code-expert.md",
+      "name": "ali-claude-code-expert",
+      "description": "Claude Code configuration expert. Use when reviewing CLAUDE.md files,\nauditing skills/agents setup, checking permission configurations,\nevaluating MCP server integrations, or optimizing Claude Code workflows.",
+      "domains": [
+        "claude-code",
+        "cli-config",
+        "skills",
+        "agents",
+        "mcp"
+      ],
+      "keywords": [
+        "Claude Code",
+        "skill",
+        "agent",
+        "MCP",
+        "hook",
+        "settings.json",
+        "slash command",
+        "subagent",
+        "CLAUDE.md"
+      ],
+      "file_patterns": [
+        "**/CLAUDE.md",
+        "**/.claude/**",
+        "**/skills/**",
+        "**/agents/**",
+        "**/.mcp.json",
+        "**/hooks/**"
+      ],
+      "anti_keywords": [
+        "backend only",
+        "infrastructure only"
+      ],
+      "anti_file_patterns": []
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-claude-developer.md",
+      "name": "ali-claude-developer",
+      "description": "Creates and updates Claude Code configuration including CLAUDE.md files, skills, hooks, agents, and Claude settings",
+      "domains": [
+        "claude-code",
+        "configuration",
+        "skills",
+        "agents",
+        "hooks",
+        "automation"
+      ],
+      "keywords": [
+        "CLAUDE.md",
+        "skill",
+        "agent",
+        "hook",
+        "claude code",
+        "configuration",
+        "settings.json",
+        ".claude",
+        "mcp",
+        "permissions",
+        "slash command",
+        "custom command"
+      ],
+      "file_patterns": [
+        "**/CLAUDE.md",
+        "**/.claude/**",
+        "**/skills/**/SKILL.md",
+        "**/agents/**/*.md",
+        "**/hooks/**",
+        "**/settings.json",
+        "**/.mcp.json"
+      ],
+      "anti_keywords": [
+        "review only",
+        "audit only",
+        "read-only"
+      ],
+      "anti_file_patterns": [
+        "**/*.py",
+        "**/*.ts",
+        "**/*.tsx",
+        "**/*.sql",
+        "**/migrations/**",
+        "**/tests/**",
+        "**/README.md"
+      ]
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-collibra-expert.md",
+      "name": "ali-collibra-expert",
+      "description": "Collibra data governance expert for reviewing Operating Model design,\nEdge connector configurations, governance workflows, and metadata integration patterns.\nUse for formal reviews of Collibra implementations, workflow decision tables,\nand Edge scanning configurations.",
+      "domains": [
+        "data-governance",
+        "metadata-management",
+        "data-catalog",
+        "data-lineage",
+        "collibra"
+      ],
+      "keywords": [
+        "collibra",
+        "governance",
+        "data catalog",
+        "metadata",
+        "lineage",
+        "operating model",
+        "edge connector",
+        "business glossary",
+        "data quality",
+        "data steward",
+        "workflow",
+        "BRFplus",
+        "asset types",
+        "communities",
+        "domains"
+      ],
+      "file_patterns": [
+        "**/collibra/**",
+        "**/governance/**",
+        "**/metadata/**",
+        "**/edge/**",
+        "**/*_collibra*.py",
+        "**/*_governance*.py"
+      ],
+      "anti_keywords": [
+        "unit test",
+        "e2e test"
+      ],
+      "anti_file_patterns": []
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-copilot-expert.md",
+      "name": "ali-copilot-expert",
+      "description": "Microsoft CoPilot Studio expert for reviewing agent implementations, planning\nmigrations to CoPilot Studio, designing action architectures, and validating\nknowledge source configurations. Use for CoPilot architecture reviews, migration\nplanning from other platforms, and CoPilot governance assessments.",
+      "domains": [
+        "copilot",
+        "copilot-studio",
+        "microsoft",
+        "power-platform",
+        "conversational-ai"
+      ],
+      "keywords": [
+        "CoPilot",
+        "CoPilot Studio",
+        "Power Platform",
+        "Power Automate",
+        "Teams bot",
+        "declarative agent",
+        "custom agent",
+        "topic",
+        "trigger",
+        "knowledge source",
+        "SharePoint",
+        "OpenAPI",
+        "connector",
+        "guardrail",
+        "migration"
+      ],
+      "file_patterns": [
+        "**/copilot/**",
+        "**/*.copilot.json",
+        "**/*-agent.json",
+        "**/power-automate/**",
+        "**/openapi/**"
+      ],
+      "anti_keywords": [
+        "Claude only",
+        "LangGraph only"
+      ],
+      "anti_file_patterns": []
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-data-architecture-expert.md",
+      "name": "ali-data-architecture-expert",
+      "description": "Data architect for reviewing data models, ETL/ELT pipelines, medallion\narchitecture patterns, entity resolution, data quality, and file formats.\nUse for formal reviews of data design, schema changes, data flow patterns,\nand Parquet file configurations.",
+      "domains": [
+        "data",
+        "architecture",
+        "etl",
+        "pipelines",
+        "data-modeling"
+      ],
+      "keywords": [
+        "medallion",
+        "bronze",
+        "silver",
+        "gold",
+        "ETL",
+        "ELT",
+        "pipeline",
+        "schema",
+        "data model",
+        "fact table",
+        "dimension",
+        "SCD",
+        "idempotency",
+        "incremental",
+        "entity resolution"
+      ],
+      "file_patterns": [
+        "**/etl/**",
+        "**/pipelines/**",
+        "**/schemas/**",
+        "**/dags/**",
+        "**/*_pipeline.py",
+        "**/*_etl.py",
+        "**/*.parquet"
+      ],
+      "anti_keywords": [
+        "unit test",
+        "e2e test"
+      ],
+      "anti_file_patterns": []
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-data-governance-expert.md",
+      "name": "ali-data-governance-expert",
+      "description": "Data governance program design expert for reviewing operating model selection,\nstewardship frameworks, data domain management, maturity assessments, and\nDAMA-DMBOK alignment. Use for formal reviews of governance program architecture,\nrole definitions, CDE identification, and governance RACI design.",
+      "domains": [
+        "data-governance-program",
+        "stewardship",
+        "data-domains",
+        "maturity-assessment",
+        "dama-dmbok"
+      ],
+      "keywords": [
+        "governance operating model",
+        "centralized governance",
+        "federated governance",
+        "hybrid governance",
+        "data steward",
+        "data domain owner",
+        "data custodian",
+        "DAMA DMBOK",
+        "critical data elements",
+        "CDE",
+        "data maturity",
+        "governance RACI",
+        "data literacy",
+        "business glossary",
+        "data classification",
+        "governance council",
+        "data quality framework"
+      ],
+      "file_patterns": [
+        "**/governance/**",
+        "**/*_governance*.md",
+        "**/*_governance*.yaml",
+        "**/stewardship/**",
+        "**/data-domains/**",
+        "**/maturity/**"
+      ],
+      "anti_keywords": [
+        "collibra configuration",
+        "SAP MDG config"
+      ],
+      "anti_file_patterns": []
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-data-science-expert.md",
+      "name": "ali-data-science-expert",
+      "description": "Data science expert for reviewing exploratory data analysis, statistical tests,\nvisualizations, and hypothesis testing. Use for EDA workflows, A/B tests, and\nensuring statistical rigor in analysis.",
+      "domains": [
+        "data-science",
+        "statistics",
+        "eda",
+        "exploratory-data-analysis",
+        "visualization",
+        "hypothesis-testing",
+        "statistical-analysis"
+      ],
+      "keywords": [
+        "pandas",
+        "numpy",
+        "matplotlib",
+        "seaborn",
+        "plotly",
+        "correlation",
+        "distribution",
+        "hypothesis",
+        "p-value",
+        "t-test",
+        "anova",
+        "chi-square",
+        "outlier",
+        "missing-data",
+        "eda",
+        "exploratory",
+        "analysis",
+        "visualization",
+        "statistical",
+        "significance",
+        "confidence-interval",
+        "sample-size",
+        "a/b-test",
+        "ab-test",
+        "statsmodels",
+        "scipy",
+        "jupyter",
+        "notebook"
+      ],
+      "file_patterns": [
+        "*.ipynb",
+        "**/analysis/**",
+        "**/eda/**",
+        "**/notebooks/**",
+        "**/reports/**",
+        "**/visualization/**",
+        "**/statistics/**",
+        "**/data/**"
+      ],
+      "anti_keywords": [
+        "deployment",
+        "production",
+        "docker",
+        "kubernetes",
+        "terraform",
+        "infrastructure"
+      ],
+      "anti_file_patterns": []
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-database-developer.md",
+      "name": "ali-database-developer",
+      "description": "Database developer for implementing schemas, queries, data models, and\ndatabase architecture. Covers both relational (PostgreSQL/Aurora) and\nanalytical (Snowflake) databases. Use for creating tables, writing\nmigrations, implementing queries, and building data access patterns.",
+      "domains": [
+        "database",
+        "sql",
+        "postgres",
+        "postgresql",
+        "query-optimization"
+      ],
+      "keywords": [
+        "PostgreSQL",
+        "Aurora",
+        "SQL",
+        "query",
+        "index",
+        "performance",
+        "optimization",
+        "schema",
+        "migration",
+        "JOIN",
+        "SELECT",
+        "transaction",
+        "connection pool",
+        "implement",
+        "create",
+        "build",
+        "develop",
+        "write"
+      ],
+      "file_patterns": [
+        "**/*.sql",
+        "**/migrations/**",
+        "**/queries/**",
+        "**/database/**",
+        "**/db/**"
+      ],
+      "anti_keywords": [
+        "Snowflake only",
+        "NoSQL only",
+        "review only",
+        "audit only"
+      ],
+      "anti_file_patterns": [
+        "**/skills/**/SKILL.md",
+        "**/agents/**/*.md",
+        "**/CLAUDE.md",
+        "**/ARCHITECTURE.md",
+        "**/*.sh",
+        "**/README.md"
+      ]
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-database-expert.md",
+      "name": "ali-database-expert",
+      "description": "Database expert for reviewing schemas, queries, data models, and database\narchitecture. Covers both relational (PostgreSQL/Aurora) and analytical\n(Snowflake) databases. Use for query optimization, schema design, and\ndatabase pattern reviews.",
+      "domains": [
+        "database",
+        "sql",
+        "postgres",
+        "postgresql",
+        "query-optimization"
+      ],
+      "keywords": [
+        "PostgreSQL",
+        "Aurora",
+        "SQL",
+        "query",
+        "index",
+        "performance",
+        "optimization",
+        "schema",
+        "migration",
+        "JOIN",
+        "SELECT",
+        "transaction",
+        "connection pool"
+      ],
+      "file_patterns": [
+        "**/*.sql",
+        "**/migrations/**",
+        "**/queries/**",
+        "**/database/**",
+        "**/db/**"
+      ],
+      "anti_keywords": [
+        "Snowflake only",
+        "NoSQL only"
+      ],
+      "anti_file_patterns": []
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-dbt-expert.md",
+      "name": "ali-dbt-expert",
+      "description": "dbt (data build tool) expert for Snowflake implementations. Use when designing\ndbt projects, implementing SCD patterns, building medallion architecture,\ncreating data quality tests, or optimizing dbt models.",
+      "domains": [
+        "dbt",
+        "data-transformation",
+        "snowflake",
+        "medallion",
+        "scd"
+      ],
+      "keywords": [
+        "dbt",
+        "data build tool",
+        "medallion architecture",
+        "SCD Type 2",
+        "staging",
+        "marts",
+        "incremental",
+        "snapshot",
+        "dbt_utils",
+        "surrogate key",
+        "data quality",
+        "dbt test",
+        "ref",
+        "source"
+      ],
+      "file_patterns": [
+        "**/*.sql",
+        "**/dbt_project.yml",
+        "**/schema.yml",
+        "**/models/**",
+        "**/macros/**",
+        "**/snapshots/**"
+      ],
+      "anti_keywords": [
+        "frontend only",
+        "UI only"
+      ],
+      "anti_file_patterns": []
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-design-review-expert.md",
+      "name": "ali-design-review-expert",
+      "description": "Software design expert for reviewing code architecture, SOLID principles,\ndesign patterns usage, and code structure. Use for formal reviews of\nimplementation design, refactoring proposals, and architectural decisions.",
+      "domains": [
+        "design",
+        "architecture",
+        "patterns",
+        "solid",
+        "refactoring"
+      ],
+      "keywords": [
+        "design pattern",
+        "SOLID",
+        "architecture",
+        "refactor",
+        "class",
+        "interface",
+        "abstraction",
+        "coupling",
+        "cohesion",
+        "dependency injection",
+        "repository",
+        "factory"
+      ],
+      "file_patterns": [
+        "**/*.py",
+        "**/*.java",
+        "**/*.ts",
+        "**/*.tsx",
+        "**/services/**",
+        "**/models/**",
+        "**/repositories/**"
+      ],
+      "anti_keywords": [
+        "UI only",
+        "styling only",
+        "frontend only"
+      ],
+      "anti_file_patterns": []
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-docker-admin.md",
+      "name": "ali-docker-admin",
+      "description": "Docker operations administrator for executing docker and docker-compose commands safely.\nUse this agent for ALL Docker operations - builds, container lifecycle, registry pushes,\nvolume management, and network configuration.\nEnforces safety rules, prevents data loss, and maintains audit trail.\nOther sessions should delegate Docker operations here.",
+      "domains": [],
+      "keywords": [],
+      "file_patterns": [],
+      "anti_keywords": [],
+      "anti_file_patterns": []
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-docker-expert.md",
+      "name": "ali-docker-expert",
+      "description": "Docker expert for reviewing Dockerfiles, docker-compose configurations, and validating\ncontainerization best practices. Use for Dockerfile reviews, docker-compose validation,\ncontainer security audits, image optimization, and advisory on container patterns.",
+      "domains": [
+        "docker",
+        "container",
+        "containerization",
+        "devops",
+        "dockerfile",
+        "compose"
+      ],
+      "keywords": [
+        "docker",
+        "dockerfile",
+        "container",
+        "compose",
+        "docker-compose",
+        "image",
+        "volume",
+        "network",
+        "port",
+        "expose",
+        "entrypoint",
+        "cmd",
+        "healthcheck",
+        "multi-stage",
+        "build",
+        "layer",
+        "registry",
+        "pull",
+        "push",
+        "run",
+        "exec",
+        "logs",
+        "inspect",
+        "prune",
+        "swarm",
+        "buildx",
+        "COPY",
+        "ADD",
+        "FROM",
+        "RUN",
+        "ENV",
+        "ARG",
+        "WORKDIR"
+      ],
+      "file_patterns": [
+        "**/Dockerfile",
+        "**/Dockerfile.*",
+        "**/docker-compose*.yml",
+        "**/docker-compose*.yaml",
+        "**/.dockerignore",
+        "**/docker/**"
+      ],
+      "anti_keywords": [
+        "kubernetes",
+        "k8s",
+        "helm",
+        "terraform",
+        "ansible",
+        "puppet",
+        "chef",
+        "nomad"
+      ],
+      "anti_file_patterns": []
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-document-developer.md",
+      "name": "ali-document-developer",
+      "description": "Creates and updates documentation files including ARCHITECTURE.md, README.md, roles, and project docs",
+      "domains": [
+        "documentation",
+        "writing",
+        "markdown",
+        "architecture-docs"
+      ],
+      "keywords": [
+        "document",
+        "documentation",
+        "write docs",
+        "update docs",
+        "create docs",
+        "ARCHITECTURE.md",
+        "README.md",
+        "markdown",
+        "mermaid"
+      ],
+      "file_patterns": [
+        "**/docs/**",
+        "**/ARCHITECTURE.md",
+        "**/README.md",
+        "**/roles/**/*.md"
+      ],
+      "anti_keywords": [
+        "review only",
+        "audit only",
+        "read-only",
+        "validate only"
+      ],
+      "anti_file_patterns": [
+        "**/skills/**/SKILL.md",
+        "**/agents/**/*.md",
+        "**/.claude/**",
+        "**/*.sh",
+        "**/*.py",
+        "**/*.ts",
+        "**/*.tsx"
+      ]
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-documentation-expert.md",
+      "name": "ali-documentation-expert",
+      "description": "Documentation expert for reviewing and updating project documentation.\nReviews ARCHITECTURE.md, CLAUDE.md, README.md for completeness, accuracy,\nand currency. Can also update documentation to reflect new agents, skills,\nor patterns. Use for formal documentation audits, updating org documentation\nwhen new components are added, or validating documentation before releases.",
+      "domains": [
+        "documentation",
+        "technical-writing",
+        "knowledge-management"
+      ],
+      "keywords": [
+        "documentation",
+        "document",
+        "README",
+        "ARCHITECTURE",
+        "CLAUDE.md",
+        "update docs",
+        "add to docs",
+        "document this",
+        "documentation review",
+        "stale docs",
+        "drift"
+      ],
+      "file_patterns": [
+        "**/README.md",
+        "**/ARCHITECTURE.md",
+        "**/CLAUDE.md",
+        "**/docs/**",
+        "**/*.md"
+      ],
+      "anti_keywords": [],
+      "anti_file_patterns": []
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-edi-expert.md",
+      "name": "ali-edi-expert",
+      "description": "X12 EDI expert for reviewing healthcare EDI implementations, parser logic,\nsegment mappings, and HIPAA transaction compliance. Covers 835 (payments),\n837i (institutional claims), 837p (professional claims), and core X12\nstructure (ISA/GS/ST envelopes, loops, segments).",
+      "domains": [
+        "edi",
+        "x12",
+        "healthcare-integration",
+        "hipaa",
+        "claims-processing"
+      ],
+      "keywords": [
+        "EDI",
+        "X12",
+        "835",
+        "837",
+        "ISA",
+        "GS",
+        "ST",
+        "loop",
+        "segment",
+        "HIPAA",
+        "transaction set",
+        "envelope",
+        "qualifier",
+        "ParseContext",
+        "RowAccumulator"
+      ],
+      "file_patterns": [
+        "**/*.edi",
+        "**/*.x12",
+        "**/edi/**",
+        "**/parsers/**",
+        "**/x12/**"
+      ],
+      "anti_keywords": [
+        "FHIR only",
+        "HL7 v2 only"
+      ],
+      "anti_file_patterns": []
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-expert-panel-expert.md",
+      "name": "ali-expert-panel-expert",
+      "description": "Analyzes plan context, scores and selects relevant experts, creates plan brief.\nReturns filename and expert names list to orchestrator (main session).\n\nUse when:\n- Starting a plan-builder workflow\n- Need expert selection for a review or implementation plan\n- Analyzing what domains a plan touches",
+      "domains": [
+        "analysis",
+        "planning",
+        "expert-selection"
+      ],
+      "keywords": [
+        "select experts",
+        "analyze plan",
+        "expert panel",
+        "plan brief"
+      ],
+      "file_patterns": [],
+      "anti_keywords": [],
+      "anti_file_patterns": []
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-fhir-hl7-expert.md",
+      "name": "ali-fhir-hl7-expert",
+      "description": "Healthcare interoperability expert for reviewing FHIR R4 and HL7 v2.x\nimplementations, resource mappings, message parsing, and data exchange\npatterns. Covers FHIR resources (clinical, financial, administrative),\nHL7 v2 messages (ADT, ORM, ORU), and translation between standards.",
+      "domains": [
+        "fhir",
+        "hl7",
+        "healthcare",
+        "interoperability",
+        "hl7-v2"
+      ],
+      "keywords": [
+        "FHIR",
+        "HL7",
+        "HL7 v2",
+        "ADT",
+        "ORM",
+        "ORU",
+        "MSH",
+        "PID",
+        "PV1",
+        "Patient",
+        "Encounter",
+        "Observation",
+        "Bundle",
+        "CodeableConcept",
+        "US Core"
+      ],
+      "file_patterns": [
+        "**/fhir/**",
+        "**/hl7/**",
+        "**/*fhir*.py",
+        "**/*hl7*.py",
+        "**/healthcare/**"
+      ],
+      "anti_keywords": [
+        "EDI only",
+        "X12 only"
+      ],
+      "anti_file_patterns": []
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-frontend-developer.md",
+      "name": "ali-frontend-developer",
+      "description": "Frontend developer for implementing React/TypeScript applications, UI\ncomponents, state management, styling (Tailwind/shadcn/ui), and frontend\narchitecture. Use for building components, implementing hooks, creating\npages, and developing user interface features.",
+      "domains": [
+        "frontend",
+        "react",
+        "typescript",
+        "ui",
+        "components"
+      ],
+      "keywords": [
+        "React",
+        "TypeScript",
+        "tsx",
+        "component",
+        "useState",
+        "useEffect",
+        "hooks",
+        "Tailwind",
+        "shadcn",
+        "Zustand",
+        "React Query",
+        "Next.js",
+        "Vite",
+        "JSX",
+        "props",
+        "state management",
+        "frontend",
+        "implement",
+        "create",
+        "build",
+        "develop",
+        "write"
+      ],
+      "file_patterns": [
+        "**/*.tsx",
+        "**/*.ts",
+        "**/frontend/**",
+        "**/apps/**",
+        "**/components/**",
+        "**/hooks/**",
+        "**/pages/**",
+        "**/*.css",
+        "**/styles/**"
+      ],
+      "anti_keywords": [
+        "backend",
+        "database",
+        "API only",
+        "Terraform",
+        "review only",
+        "audit only"
+      ],
+      "anti_file_patterns": [
+        "**/skills/**/SKILL.md",
+        "**/agents/**/*.md",
+        "**/*.sh",
+        "**/*.py",
+        "**/CLAUDE.md",
+        "**/ARCHITECTURE.md",
+        "**/README.md"
+      ]
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-frontend-expert.md",
+      "name": "ali-frontend-expert",
+      "description": "Frontend development expert for reviewing React/TypeScript applications, UI\ncomponents, state management, styling (Tailwind/shadcn/ui), accessibility,\nand frontend architecture. Use for formal reviews of component design,\nhooks usage, performance optimization, and user interface implementations.",
+      "domains": [
+        "frontend",
+        "react",
+        "typescript",
+        "ui",
+        "components"
+      ],
+      "keywords": [
+        "React",
+        "TypeScript",
+        "tsx",
+        "component",
+        "useState",
+        "useEffect",
+        "hooks",
+        "Tailwind",
+        "shadcn",
+        "Zustand",
+        "React Query",
+        "Next.js",
+        "Vite",
+        "JSX",
+        "props",
+        "state management",
+        "frontend"
+      ],
+      "file_patterns": [
+        "**/*.tsx",
+        "**/*.ts",
+        "**/frontend/**",
+        "**/apps/**",
+        "**/components/**",
+        "**/hooks/**",
+        "**/pages/**",
+        "**/*.css",
+        "**/styles/**"
+      ],
+      "anti_keywords": [
+        "backend",
+        "database",
+        "API only",
+        "Terraform"
+      ],
+      "anti_file_patterns": []
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-github-admin.md",
+      "name": "ali-github-admin",
+      "description": "GitHub operations administrator for executing git and gh commands safely.\nUse this agent for ALL git operations - commits, pushes, branches, PRs, releases.\nEnforces safety rules, requires confirmation for dangerous operations, and\nmaintains audit trail. Other sessions should delegate git operations here.",
+      "domains": [],
+      "keywords": [],
+      "file_patterns": [],
+      "anti_keywords": [],
+      "anti_file_patterns": []
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-github-expert.md",
+      "name": "ali-github-expert",
+      "description": "GitHub platform expert for reviewing Actions workflows, OIDC configurations,\nrepository settings, and CI/CD pipelines. Use for security reviews of workflows,\nvalidating OIDC trust policies, auditing branch protection, and optimizing\nCI/CD performance.",
+      "domains": [
+        "github",
+        "cicd",
+        "actions",
+        "workflows",
+        "oidc",
+        "devops"
+      ],
+      "keywords": [
+        "GitHub Actions",
+        "workflow",
+        "OIDC",
+        "secrets",
+        "CI/CD",
+        "pipeline",
+        "pull request",
+        "branch protection",
+        "CodeQL",
+        "Dependabot",
+        "concurrency",
+        "aws-actions"
+      ],
+      "file_patterns": [
+        ".github/workflows/**",
+        "**/*.yml",
+        "**/*.yaml",
+        "**/actions/**"
+      ],
+      "anti_keywords": [
+        "infrastructure only",
+        "local git only"
+      ],
+      "anti_file_patterns": []
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-google-apps-script-expert.md",
+      "name": "ali-google-apps-script-expert",
+      "description": "Google Apps Script and Workspace Add-ins expert for reviewing Apps Script\nweb apps, Drive integrations, OAuth configurations, and Workspace add-on\nmanifests. Use for formal reviews of Apps Script code, security audits,\nand architecture validation.",
+      "domains": [
+        "google-apps-script",
+        "workspace-addins",
+        "drive-integration",
+        "oauth"
+      ],
+      "keywords": [
+        "Apps Script",
+        "Google Apps Script",
+        "Drive integration",
+        "Workspace add-on",
+        "doGet",
+        "doPost",
+        "HtmlService",
+        "DriveApp",
+        "SpreadsheetApp",
+        "OAuth scope",
+        "Drive UI"
+      ],
+      "file_patterns": [
+        "**/*.gs",
+        "**/Code.gs",
+        "**/appsscript.json",
+        "**/*.html"
+      ],
+      "anti_keywords": [
+        "backend only",
+        "database only"
+      ],
+      "anti_file_patterns": []
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-graph-api-expert.md",
+      "name": "ali-graph-api-expert",
+      "description": "Microsoft Graph API expert for reviewing MSAL authentication, SharePoint,\nOneDrive, Teams, and Outlook integrations. Use for security reviews of\nGraph API implementations, permission scope validation, throttling strategy\nassessment, and authentication pattern auditing.",
+      "domains": [
+        "microsoft-graph",
+        "sharepoint",
+        "onedrive",
+        "teams",
+        "outlook",
+        "msal",
+        "oauth"
+      ],
+      "keywords": [
+        "Microsoft Graph",
+        "Graph API",
+        "MSAL",
+        "SharePoint",
+        "OneDrive",
+        "Teams",
+        "Outlook",
+        "graph.microsoft.com",
+        "AzCliAuthManager",
+        "MsalAuthManager",
+        "Sites.ReadWrite",
+        "Files.ReadWrite",
+        "deltaLink",
+        "nextLink",
+        "webhook subscription",
+        "change notification",
+        "batch request",
+        "checkout",
+        "checkin",
+        "429 throttling"
+      ],
+      "file_patterns": [
+        "**/graph/**",
+        "**/msal/**",
+        "**/*_graph.py",
+        "**/*_sharepoint.py",
+        "**/*_teams.py",
+        "**/*_onedrive.py",
+        "**/subscriptions/**"
+      ],
+      "anti_keywords": [
+        "entra-id",
+        "power-platform-copilot",
+        "graph-powershell",
+        "SharePoint on-premises"
+      ],
+      "anti_file_patterns": []
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-graphics-expert.md",
+      "name": "ali-graphics-expert",
+      "description": "Visual design and graphics expert for reviewing branding consistency, design\nsystems, visual hierarchy, typography, color usage, CSS architecture, and\nimage optimization. Use for formal reviews of visual design, styling code,\nand graphics implementation.",
+      "domains": [
+        "graphics",
+        "design",
+        "css",
+        "styling",
+        "branding",
+        "visual-design"
+      ],
+      "keywords": [
+        "CSS",
+        "Tailwind",
+        "design system",
+        "typography",
+        "color",
+        "branding",
+        "visual",
+        "layout",
+        "responsive",
+        "animation",
+        "theme",
+        "palette",
+        "spacing"
+      ],
+      "file_patterns": [
+        "**/*.css",
+        "**/*.scss",
+        "**/*.sass",
+        "**/styles/**",
+        "**/assets/**",
+        "**/images/**",
+        "**/design-system/**"
+      ],
+      "anti_keywords": [
+        "backend only",
+        "database only",
+        "API only"
+      ],
+      "anti_file_patterns": []
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-iceberg-expert.md",
+      "name": "ali-iceberg-expert",
+      "description": "Apache Iceberg table format expert for reviewing Bronze layer architecture,\npartition evolution strategies, schema evolution, compaction jobs, and CDC patterns.\nUse for formal reviews of Iceberg table configurations, time travel queries,\nand Starburst integration patterns.",
+      "domains": [
+        "data-lake",
+        "iceberg",
+        "table-format",
+        "bronze-layer",
+        "medallion",
+        "compaction"
+      ],
+      "keywords": [
+        "iceberg",
+        "data lake",
+        "bronze layer",
+        "silver layer",
+        "gold layer",
+        "medallion",
+        "partition evolution",
+        "schema evolution",
+        "hidden partitioning",
+        "time travel",
+        "snapshot",
+        "compaction",
+        "catalog",
+        "manifest",
+        "parquet",
+        "CDC",
+        "merge-on-read",
+        "copy-on-write"
+      ],
+      "file_patterns": [
+        "**/iceberg/**",
+        "**/bronze/**",
+        "**/lake/**",
+        "**/compaction/**",
+        "**/*_iceberg*.py",
+        "**/*_compaction*.py",
+        "**/*_bronze*.py"
+      ],
+      "anti_keywords": [
+        "unit test",
+        "e2e test"
+      ],
+      "anti_file_patterns": []
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-integrations-expert.md",
+      "name": "ali-integrations-expert",
+      "description": "External integrations expert for reviewing OAuth implementations, webhook\nhandlers, API clients, and third-party service integrations (Stripe, Twilio,\nPersona, Google, SmartVault). Use for security reviews, error handling\nvalidation, and integration pattern assessment.",
+      "domains": [
+        "integrations",
+        "api-clients",
+        "oauth",
+        "webhooks",
+        "third-party",
+        "external-services"
+      ],
+      "keywords": [
+        "OAuth",
+        "webhook",
+        "Stripe",
+        "Twilio",
+        "Persona",
+        "API integration",
+        "third-party",
+        "external API",
+        "authentication",
+        "signature verification",
+        "idempotency",
+        "rate limiting"
+      ],
+      "file_patterns": [
+        "**/integrations/**",
+        "**/webhooks/**",
+        "**/api/clients/**",
+        "**/oauth/**",
+        "**/external/**"
+      ],
+      "anti_keywords": [
+        "database only",
+        "infrastructure only"
+      ],
+      "anti_file_patterns": []
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-kafka-expert.md",
+      "name": "ali-kafka-expert",
+      "description": "Apache Kafka streaming expert for reviewing topic design, partition strategies,\nconsumer group patterns, schema evolution, and CDC pipelines.\nUse for formal reviews of event-driven architectures, Kafka Connect configurations,\nand exactly-once semantics implementations.",
+      "domains": [
+        "streaming",
+        "kafka",
+        "event-driven",
+        "real-time",
+        "messaging",
+        "cdc"
+      ],
+      "keywords": [
+        "kafka",
+        "streaming",
+        "event",
+        "topic",
+        "partition",
+        "consumer group",
+        "producer",
+        "debezium",
+        "CDC",
+        "schema registry",
+        "avro",
+        "exactly-once",
+        "idempotent",
+        "Kafka Connect",
+        "dead letter queue",
+        "DLQ"
+      ],
+      "file_patterns": [
+        "**/kafka/**",
+        "**/streaming/**",
+        "**/debezium/**",
+        "**/connect/**",
+        "**/*_kafka*.py",
+        "**/*_streaming*.py",
+        "**/*_producer*.py",
+        "**/*_consumer*.py"
+      ],
+      "anti_keywords": [
+        "unit test",
+        "e2e test"
+      ],
+      "anti_file_patterns": []
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-langgraph-expert.md",
+      "name": "ali-langgraph-expert",
+      "description": "LangGraph expert for reviewing stateful agent workflows, state management,\ncheckpointing strategies, and multi-agent architectures. Use for reviewing\ngraph structure, validating state schemas, auditing persistence configuration,\nand checking human-in-the-loop implementations.",
+      "domains": [
+        "langgraph",
+        "agents",
+        "state-management",
+        "workflows",
+        "langchain"
+      ],
+      "keywords": [
+        "LangGraph",
+        "StateGraph",
+        "checkpointer",
+        "node",
+        "edge",
+        "TypedDict",
+        "MemorySaver",
+        "PostgresSaver",
+        "interrupt",
+        "streaming",
+        "multi-agent"
+      ],
+      "file_patterns": [
+        "**/langgraph/**",
+        "**/agents/**",
+        "**/graphs/**",
+        "**/*_graph.py",
+        "**/*_agent.py"
+      ],
+      "anti_keywords": [
+        "frontend only",
+        "database only"
+      ],
+      "anti_file_patterns": []
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-machine-learning-expert.md",
+      "name": "ali-machine-learning-expert",
+      "description": "Machine learning expert for reviewing predictive models, forecasting pipelines,\nfeature engineering, and model evaluation. Use for model selection, training\nworkflows, and preventing common ML anti-patterns like data leakage.",
+      "domains": [
+        "machine-learning",
+        "predictive-modeling",
+        "forecasting",
+        "classification",
+        "regression",
+        "time-series",
+        "model-training"
+      ],
+      "keywords": [
+        "xgboost",
+        "lightgbm",
+        "catboost",
+        "scikit-learn",
+        "sklearn",
+        "pytorch",
+        "tensorflow",
+        "keras",
+        "cross-validation",
+        "feature-engineering",
+        "hyperparameter",
+        "overfitting",
+        "underfitting",
+        "data-leakage",
+        "train",
+        "test",
+        "predict",
+        "model",
+        "accuracy",
+        "precision",
+        "recall",
+        "f1-score",
+        "rmse",
+        "mae",
+        "mlflow",
+        "wandb",
+        "optuna",
+        "hyperopt",
+        "prophet",
+        "arima",
+        "lstm"
+      ],
+      "file_patterns": [
+        "**/*model*.py",
+        "**/*train*.py",
+        "**/*predict*.py",
+        "*.ipynb",
+        "**/ml/**",
+        "**/models/**",
+        "**/features/**",
+        "**/evaluation/**",
+        "**/experiments/**",
+        "**/pipelines/**"
+      ],
+      "anti_keywords": [
+        "frontend",
+        "css",
+        "html",
+        "styling",
+        "responsive",
+        "component",
+        "ui"
+      ],
+      "anti_file_patterns": []
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-macos-admin.md",
+      "name": "ali-macos-admin",
+      "description": "macOS operations administrator for executing system commands safely.\nUse this agent for ALL macOS operations - Homebrew, launchd, system config,\nprocess management, and automation execution.\nEnforces safety rules, prevents destructive system changes, and maintains audit trail.\nOther sessions should delegate macOS operations here.",
+      "domains": [],
+      "keywords": [],
+      "file_patterns": [],
+      "anti_keywords": [],
+      "anti_file_patterns": []
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-macos-expert.md",
+      "name": "ali-macos-expert",
+      "description": "macOS automation specialist for Shortcuts.app, AppleScript, Quick Actions, and\nshell integration. Use for reviewing macOS automations, advising on automation\nconfigurations, and analyzing permission issues.",
+      "domains": [
+        "macos",
+        "automation",
+        "shortcuts",
+        "applescript",
+        "quick-actions"
+      ],
+      "keywords": [
+        "shortcuts",
+        "applescript",
+        "osascript",
+        "quick action",
+        "automator",
+        "launch agent",
+        "launchd",
+        "macOS",
+        "mac automation",
+        "finder",
+        "notification",
+        "clipboard",
+        "pbcopy",
+        "pbpaste"
+      ],
+      "file_patterns": [
+        "**/*.scpt",
+        "**/*.applescript",
+        "**/*.shortcut",
+        "**/*.workflow",
+        "**/LaunchAgents/**",
+        "**/LaunchDaemons/**",
+        "**/*automation*.sh"
+      ],
+      "anti_keywords": [],
+      "anti_file_patterns": []
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-manufacturing-expert.md",
+      "name": "ali-manufacturing-expert",
+      "description": "Manufacturing domain expert for reviewing analytics solutions, data models, and\ntechnology implementations in manufacturing contexts. Covers BOM, production orders,\nquality management, supply chain, warehouse/logistics, dealer networks, IoT, and ERP\ndata structures for discrete and process manufacturing.",
+      "domains": [
+        "manufacturing",
+        "supply-chain",
+        "quality-management",
+        "production",
+        "warehouse-logistics"
+      ],
+      "keywords": [
+        "manufacturing",
+        "bill of materials",
+        "BOM",
+        "production order",
+        "work order",
+        "quality notification",
+        "quality inspection",
+        "warranty",
+        "supply chain",
+        "warehouse",
+        "logistics",
+        "freight",
+        "carrier",
+        "inventory",
+        "MRP",
+        "capacity planning",
+        "machine utilization",
+        "OEE",
+        "dealer network",
+        "fleet management",
+        "IoT",
+        "connected products",
+        "forklift",
+        "lift truck",
+        "discrete manufacturing",
+        "SAP PP",
+        "SAP MM",
+        "SAP QM",
+        "IFS",
+        "BAAN"
+      ],
+      "file_patterns": [
+        "**/manufacturing/**",
+        "**/production/**",
+        "**/supply_chain/**",
+        "**/quality/**",
+        "**/warehouse/**",
+        "**/bom/**",
+        "**/*_bom*.py",
+        "**/*_production*.py",
+        "**/*_manufacturing*.py"
+      ],
+      "anti_keywords": [
+        "healthcare",
+        "FHIR",
+        "HL7",
+        "tax preparation"
+      ],
+      "anti_file_patterns": []
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-mdm-strategy-expert.md",
+      "name": "ali-mdm-strategy-expert",
+      "description": "Master Data Management strategy expert for reviewing multi-system MDM architecture,\ngolden record design across heterogeneous ERPs, survivorship rules, and MDM\nimplementation patterns. Use for formal reviews of MDM program design, data hub\nvs registry decisions, and cross-system consolidation strategies.",
+      "domains": [
+        "master-data-management",
+        "mdm-architecture",
+        "golden-record",
+        "data-consolidation",
+        "entity-resolution"
+      ],
+      "keywords": [
+        "master data management",
+        "MDM",
+        "golden record",
+        "survivorship rules",
+        "data hub",
+        "registry style",
+        "consolidation style",
+        "coexistence style",
+        "entity resolution",
+        "match and merge",
+        "duplicate detection",
+        "customer master",
+        "vendor master",
+        "product master",
+        "material master",
+        "multi-ERP",
+        "cross-system",
+        "source of truth",
+        "rules of record",
+        "trust score"
+      ],
+      "file_patterns": [
+        "**/mdm/**",
+        "**/master-data/**",
+        "**/golden-record/**",
+        "**/*_mdm*.py",
+        "**/*_master_data*.py"
+      ],
+      "anti_keywords": [
+        "SAP MDG configuration",
+        "BRFplus",
+        "SAP transaction codes"
+      ],
+      "anti_file_patterns": []
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-merge-synthesis-expert.md",
+      "name": "ali-merge-synthesis-expert",
+      "description": "Merges expert findings into consolidated synthesis. Produces two outputs:\nsynthesis-final.md (full merged content) and executive-summary.md (CoS-ready).\nUsed by plan-builder workflow for final consolidation.",
+      "domains": [],
+      "keywords": [],
+      "file_patterns": [],
+      "anti_keywords": [],
+      "anti_file_patterns": []
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-ocm-expert.md",
+      "name": "ali-ocm-expert",
+      "description": "Organizational Change Management expert for reviewing adoption strategies,\nstakeholder analysis, training program design, communication plans, and\nresistance management. Use for formal reviews of OCM plans, data literacy\nprograms, and technology adoption strategies.",
+      "domains": [
+        "change-management",
+        "adoption",
+        "training",
+        "stakeholder-management",
+        "communication"
+      ],
+      "keywords": [
+        "change management",
+        "organizational change",
+        "adoption strategy",
+        "stakeholder analysis",
+        "stakeholder engagement",
+        "training program",
+        "training plan",
+        "data literacy",
+        "communication plan",
+        "resistance management",
+        "readiness assessment",
+        "change impact",
+        "train the trainer",
+        "user adoption",
+        "change champion",
+        "change network",
+        "ADKAR",
+        "Prosci",
+        "Kotter"
+      ],
+      "file_patterns": [
+        "**/ocm/**",
+        "**/change-management/**",
+        "**/adoption/**",
+        "**/training/**",
+        "**/stakeholder/**",
+        "**/*_ocm*.md",
+        "**/*_change*.md"
+      ],
+      "anti_keywords": [
+        "code review",
+        "unit test"
+      ],
+      "anti_file_patterns": []
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-parquet-expert.md",
+      "name": "ali-parquet-expert",
+      "description": "Apache Parquet expert for reviewing columnar file formats, compression strategies,\nschema design, partitioning, and performance optimization. Use for formal reviews\nof Parquet file implementations, schema evolution, and Snowflake/Spark ingestion patterns.",
+      "domains": [
+        "parquet",
+        "data",
+        "file-formats",
+        "columnar-storage"
+      ],
+      "keywords": [
+        "parquet",
+        "PyArrow",
+        "columnar",
+        "row group",
+        "compression",
+        "snappy",
+        "gzip",
+        "zstd",
+        "schema evolution",
+        "nested types",
+        "dictionary encoding"
+      ],
+      "file_patterns": [
+        "**/*.parquet",
+        "**/parquet/**",
+        "**/*_parquet.py",
+        "**/*parquet*.py"
+      ],
+      "anti_keywords": [
+        "csv",
+        "json only"
+      ],
+      "anti_file_patterns": []
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-plan-agent.md",
+      "name": "ali-plan-agent",
+      "description": "Implementation planning agent that enforces org planning standards. Use when\ncreating implementation plans for any feature, fix, refactor, or architectural\nchange. Produces plans that conform to the org planning template automatically.\n\nUse when:\n- PLANNING: N/A \u2014 this agent IS the planning workflow\n- IMPLEMENTATION: When CoS needs a compliant implementation plan produced for\n  any feature, fix, refactor, or architectural change",
+      "domains": [
+        "planning",
+        "implementation",
+        "project-management"
+      ],
+      "keywords": [
+        "implementation plan",
+        "planning template",
+        "phase",
+        "plan document",
+        "create a plan",
+        "write a plan",
+        "planning"
+      ],
+      "file_patterns": [
+        "**/docs/plans/**",
+        "**/docs/planning-template.md"
+      ],
+      "anti_keywords": [
+        "expert review",
+        "remediation plan from findings",
+        "convert findings"
+      ],
+      "anti_file_patterns": []
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-plan-builder.md",
+      "name": "ali-plan-builder",
+      "description": "Orchestrates implementation plan creation through sequential expert collaboration.\nSelects relevant experts from manifest, spawns sequentially, synthesizes findings\nincrementally via merge-synthesizer, and prepares executive summary for Chief of\nStaff (main session) to present to user for approval.\n\nUse when:\n- Converting expert panel findings into remediation plans\n- Creating implementation plans that need multi-domain buy-in\n- Formalizing plans that require expert review before execution",
+      "domains": [
+        "orchestration",
+        "planning",
+        "coordination",
+        "remediation"
+      ],
+      "keywords": [
+        "orchestrate",
+        "coordinate",
+        "remediation plan",
+        "implementation plan",
+        "create plan from",
+        "convert findings",
+        "multi-agent"
+      ],
+      "file_patterns": [
+        "**/docs/plans/**",
+        "**/*-review*.md",
+        "**/*-findings*.md"
+      ],
+      "anti_keywords": [
+        "apply template",
+        "revise plan"
+      ],
+      "anti_file_patterns": []
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-plan-reviewer.md",
+      "name": "ali-plan-reviewer",
+      "description": "Implementation plan reviewer that produces structured PASS/FAIL verdicts against clean criteria. Use during plan-builder implement mode to validate implementation plan drafts through an iteration-until-clean loop.",
+      "domains": [
+        "planning",
+        "implementation-review",
+        "verdict-writing"
+      ],
+      "keywords": [
+        "plan review",
+        "implementation review",
+        "verdict",
+        "PASS",
+        "FAIL",
+        "plan quality",
+        "clean criteria",
+        "plan-builder"
+      ],
+      "file_patterns": [
+        "docs/plans/**",
+        "docs/feature/**/plan.md",
+        ".tmp/**/verdict.md"
+      ],
+      "anti_keywords": [
+        "design review",
+        "code review",
+        "architecture review",
+        "expert panel"
+      ],
+      "anti_file_patterns": []
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-rcm-expert.md",
+      "name": "ali-rcm-expert",
+      "description": "Revenue Cycle Management expert for reviewing denial workflows, AR management,\nclaim processing logic, and payer integration patterns. Covers denial classification,\nappeal tracking, low balance AR economics, worklist prioritization, and EDI\nremittance processing.",
+      "domains": [
+        "rcm",
+        "revenue-cycle",
+        "denial-management",
+        "healthcare-billing",
+        "ar-management",
+        "claims-processing"
+      ],
+      "keywords": [
+        "RCM",
+        "denial",
+        "appeal",
+        "CARC",
+        "RARC",
+        "revenue cycle",
+        "accounts receivable",
+        "claim status",
+        "worklist",
+        "payer portal",
+        "clearinghouse",
+        "overturn",
+        "write-off",
+        "cost-to-collect",
+        "priority score",
+        "SLA",
+        "routing rules",
+        "work queue",
+        "appeal deadline",
+        "denial rate",
+        "overturn rate"
+      ],
+      "file_patterns": [
+        "**/*denial*",
+        "**/*claim*",
+        "**/*appeal*",
+        "**/*rcm*",
+        "**/*workflow*",
+        "**/*routing*",
+        "**/*ar_*",
+        "**/*queue*",
+        "**/*worklist*",
+        "**/*priority*"
+      ],
+      "anti_keywords": [
+        "EDI only",
+        "coding only",
+        "FHIR only",
+        "clinical documentation only"
+      ],
+      "anti_file_patterns": []
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-rfp-response-expert.md",
+      "name": "ali-rfp-response-expert",
+      "description": "RFP response expert for reviewing proposals when Aliunde is the vendor/bidder",
+      "domains": [
+        "rfp",
+        "proposal",
+        "bids",
+        "procurement"
+      ],
+      "keywords": [
+        "rfp",
+        "rfi",
+        "proposal",
+        "compliance matrix",
+        "win themes",
+        "technical approach",
+        "past performance",
+        "color team"
+      ],
+      "file_patterns": [
+        "**/rfp/**",
+        "**/proposal/**",
+        "**/*rfp*.md"
+      ],
+      "anti_keywords": [
+        "code review",
+        "security audit"
+      ],
+      "anti_file_patterns": []
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-sap-mdg-expert.md",
+      "name": "ali-sap-mdg-expert",
+      "description": "SAP Master Data Governance expert for reviewing hub vs co-deployment decisions,\nBRFplus workflow configurations, matching rules, and survivorship logic.\nUse for formal reviews of MDG implementations, Data Vault automation,\nand integration patterns for multi-system landscapes.",
+      "domains": [
+        "master-data-governance",
+        "sap-mdg",
+        "data-quality",
+        "business-partner",
+        "matching",
+        "survivorship"
+      ],
+      "keywords": [
+        "SAP MDG",
+        "master data",
+        "golden record",
+        "matching rules",
+        "survivorship",
+        "BRFplus",
+        "Business Partner",
+        "hub deployment",
+        "co-deployment",
+        "Data Vault",
+        "MDI",
+        "change request",
+        "steward",
+        "consolidation",
+        "DQM"
+      ],
+      "file_patterns": [
+        "**/mdg/**",
+        "**/sap/**",
+        "**/master-data/**",
+        "**/brf/**",
+        "**/*_mdg*.py",
+        "**/*_matching*.py",
+        "**/*_survivorship*.py"
+      ],
+      "anti_keywords": [
+        "unit test",
+        "e2e test"
+      ],
+      "anti_file_patterns": []
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-security-expert.md",
+      "name": "ali-security-expert",
+      "description": "Security and data privacy expert for reviewing code and plans against OWASP Top 10, HIPAA,\nWISP, IRS Pub 4557, GDPR, CCPA, and secure coding standards. Use for formal security\nreviews, vulnerability assessments, compliance validation, and data privacy assessments.",
+      "domains": [
+        "security",
+        "compliance",
+        "authentication",
+        "authorization",
+        "data-privacy",
+        "regulatory-compliance"
+      ],
+      "keywords": [
+        "authentication",
+        "authorization",
+        "encryption",
+        "credentials",
+        "password",
+        "token",
+        "session",
+        "OWASP",
+        "HIPAA",
+        "WISP",
+        "SQL injection",
+        "XSS",
+        "CSRF",
+        "secrets",
+        "security",
+        "vulnerability",
+        "PII",
+        "PHI",
+        "SSN",
+        "GDPR",
+        "CCPA",
+        "data privacy",
+        "right to be forgotten",
+        "data residency",
+        "DPIA",
+        "privacy impact assessment",
+        "data retention",
+        "cross-border",
+        "Privacy by Design"
+      ],
+      "file_patterns": [
+        "**/auth/**",
+        "**/security/**",
+        "**/*_auth.py",
+        "**/*_security.py",
+        "**/*auth*.tsx",
+        "**/login/**",
+        "**/oauth/**"
+      ],
+      "anti_keywords": [],
+      "anti_file_patterns": []
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-snowflake-admin.md",
+      "name": "ali-snowflake-admin",
+      "description": "Snowflake operations administrator for executing SnowSQL and SQL commands safely.\nUse this agent for ALL Snowflake operations - DDL, warehouse management, role/user admin.\nEnforces safety rules, ACCOUNTADMIN protection, and maintains audit trail.\nOther sessions should delegate Snowflake operations here.",
+      "domains": [],
+      "keywords": [],
+      "file_patterns": [],
+      "anti_keywords": [],
+      "anti_file_patterns": []
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-snowflake-expert.md",
+      "name": "ali-snowflake-expert",
+      "description": "Snowflake data warehouse expert for reviewing SQL queries, performance tuning,\nwarehouse sizing, clustering strategies, data sharing, Time Travel, and cost\noptimization. Use for formal reviews of Snowflake-specific implementations,\narchitecture decisions, and query performance.",
+      "domains": [
+        "snowflake",
+        "data-warehouse",
+        "cloud-database",
+        "analytics"
+      ],
+      "keywords": [
+        "Snowflake",
+        "warehouse",
+        "clustering",
+        "micro-partition",
+        "Time Travel",
+        "Snowpipe",
+        "streams",
+        "tasks",
+        "COPY INTO",
+        "data sharing",
+        "virtual warehouse",
+        "query profile",
+        "result cache"
+      ],
+      "file_patterns": [
+        "**/*snowflake*.sql",
+        "**/*snowflake*.py",
+        "**/snowflake/**",
+        "**/*.sql"
+      ],
+      "anti_keywords": [
+        "PostgreSQL only",
+        "MySQL only",
+        "local database"
+      ],
+      "anti_file_patterns": []
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-sow-orchestrator.md",
+      "name": "ali-sow-orchestrator",
+      "description": "SOW orchestrator for coordinating multiple expert agents. Use when managing\ncomplex multi-domain projects requiring parallel expert analysis, conflict\nresolution, and synthesis into unified deliverables like SOWs or proposals.",
+      "domains": [
+        "orchestration",
+        "coordination",
+        "multi-agent",
+        "sow",
+        "synthesis"
+      ],
+      "keywords": [
+        "orchestration",
+        "coordination",
+        "multi-agent",
+        "expert panel",
+        "synthesis",
+        "SOW",
+        "parallel agents",
+        "conflict resolution",
+        "knowledge base"
+      ],
+      "file_patterns": [
+        "**/*sow*",
+        "**/*orchestrat*",
+        "**/*panel*",
+        "**/*synthesis*"
+      ],
+      "anti_keywords": [
+        "single domain",
+        "simple task"
+      ],
+      "anti_file_patterns": []
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-sow-scoping-expert.md",
+      "name": "ali-sow-scoping-expert",
+      "description": "SOW development and project scoping expert. Use when translating requirements\ninto deliverables, estimating timelines, defining team composition, planning\nbudgets, or structuring engagement proposals.",
+      "domains": [
+        "sow",
+        "scoping",
+        "project-planning",
+        "delivery",
+        "estimation",
+        "proposal"
+      ],
+      "keywords": [
+        "SOW",
+        "scope",
+        "deliverables",
+        "timeline",
+        "milestone",
+        "team composition",
+        "FTE",
+        "budget",
+        "estimate",
+        "acceptance criteria",
+        "RACI",
+        "risk register",
+        "work breakdown"
+      ],
+      "file_patterns": [
+        "**/*sow*",
+        "**/*scope*",
+        "**/*proposal*",
+        "**/*estimate*",
+        "**/*deliverable*",
+        "**/*timeline*"
+      ],
+      "anti_keywords": [
+        "code only",
+        "implementation only"
+      ],
+      "anti_file_patterns": []
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-starburst-expert.md",
+      "name": "ali-starburst-expert",
+      "description": "Starburst/Trino query federation expert for reviewing connector configurations,\ncross-catalog query patterns, access control policies, and data virtualization architecture.\nUse for formal reviews of query federation performance, pushdown optimization,\nand Collibra integration for lineage and governance.",
+      "domains": [
+        "query-federation",
+        "starburst",
+        "trino",
+        "data-virtualization",
+        "access-control",
+        "connectors"
+      ],
+      "keywords": [
+        "starburst",
+        "trino",
+        "query federation",
+        "connector",
+        "catalog",
+        "cross-catalog",
+        "pushdown",
+        "data virtualization",
+        "Warp Speed",
+        "caching",
+        "Ranger",
+        "OPA",
+        "row-level security",
+        "column masking",
+        "data products",
+        "lineage",
+        "Iceberg connector"
+      ],
+      "file_patterns": [
+        "**/starburst/**",
+        "**/trino/**",
+        "**/federation/**",
+        "**/connectors/**",
+        "**/catalog/**",
+        "**/*_starburst*.py",
+        "**/*_trino*.py",
+        "**/*_federation*.py"
+      ],
+      "anti_keywords": [
+        "unit test",
+        "e2e test"
+      ],
+      "anti_file_patterns": []
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-streamlit-expert.md",
+      "name": "ali-streamlit-expert",
+      "description": "Streamlit expert for reviewing app architecture, state management, caching\npatterns, UI/UX design, security, and performance. Use for formal reviews of\nStreamlit applications, code organization, accessibility compliance, and\ntesting strategy.",
+      "domains": [
+        "streamlit",
+        "frontend",
+        "web-app",
+        "ui",
+        "data-app"
+      ],
+      "keywords": [
+        "Streamlit",
+        "st.session_state",
+        "st.cache_data",
+        "st.cache_resource",
+        "st.file_uploader",
+        "StreamlitAsyncBridge",
+        "asyncio",
+        "sidebar",
+        "rerun"
+      ],
+      "file_patterns": [
+        "**/streamlit/**",
+        "**/*streamlit*.py",
+        "**/pages/**",
+        "**/components/**",
+        "**/app.py"
+      ],
+      "anti_keywords": [
+        "backend only",
+        "API only",
+        "database only"
+      ],
+      "anti_file_patterns": []
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-svg-expert.md",
+      "name": "ali-svg-expert",
+      "description": "SVG development and graphics expert for reviewing vector graphics,\nSVG code structure, accessibility, optimization, and security.\nUse for formal reviews of SVG implementations, icon systems,\nanimations, and embedded graphics.",
+      "domains": [
+        "svg",
+        "vector-graphics",
+        "icons",
+        "animation"
+      ],
+      "keywords": [
+        "SVG",
+        "vector",
+        "icon",
+        "path",
+        "viewBox",
+        "graphics",
+        "scalable",
+        "illustration",
+        "diagram",
+        "animation"
+      ],
+      "file_patterns": [
+        "**/*.svg",
+        "**/icons/**",
+        "**/graphics/**"
+      ],
+      "anti_keywords": [
+        "backend only",
+        "database only"
+      ],
+      "anti_file_patterns": []
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-tax-expert.md",
+      "name": "ali-tax-expert",
+      "description": "Tax practice domain expert for reviewing tax preparation workflows, IRS\ncompliance requirements, e-filing implementations, and client data handling.\nCovers WISP, Circular 230, Form 7216/8879, PTIN tracking, and identity\nverification requirements.",
+      "domains": [
+        "tax",
+        "tax-preparation",
+        "compliance",
+        "irs",
+        "e-filing"
+      ],
+      "keywords": [
+        "tax",
+        "IRS",
+        "e-filing",
+        "PTIN",
+        "Form 7216",
+        "Form 8879",
+        "Circular 230",
+        "WISP",
+        1040,
+        "return",
+        "MeF",
+        "UltraTax",
+        "SurePrep"
+      ],
+      "file_patterns": [
+        "**/tax/**",
+        "**/returns/**",
+        "**/efile/**",
+        "**/compliance/**",
+        "**/*_tax.py"
+      ],
+      "anti_keywords": [
+        "infrastructure only",
+        "database only"
+      ],
+      "anti_file_patterns": []
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-technical-feasibility-expert.md",
+      "name": "ali-technical-feasibility-expert",
+      "description": "Technical feasibility gate check expert. Validates implementation plans against\nframework capabilities, platform constraints, and architectural reality. Use when\nevaluating technical approaches, reviewing plans before implementation, or validating\nthat proposed solutions are actually buildable.",
+      "domains": [
+        "feasibility",
+        "architecture-validation",
+        "technical-approach",
+        "spike-validation",
+        "POC-review"
+      ],
+      "keywords": [
+        "POC",
+        "spike",
+        "prototype",
+        "feasibility",
+        "can this be built",
+        "framework constraints",
+        "technical approach",
+        "architecture",
+        "data model",
+        "integration pattern",
+        "design",
+        "schema",
+        "migration",
+        "workflow",
+        "implementation plan"
+      ],
+      "file_patterns": [
+        "**/plans/**",
+        "**/architecture/**",
+        "**/docs/technical/**",
+        "**/*-plan.md",
+        "**/*-proposal.md"
+      ],
+      "anti_keywords": [
+        "implementation complete",
+        "already built",
+        "refactor only"
+      ],
+      "anti_file_patterns": []
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-terraform-admin.md",
+      "name": "ali-terraform-admin",
+      "description": "Terraform operations administrator for executing terraform commands safely.\nUse this agent for ALL Terraform operations - plan, apply, destroy, state management.\nEnforces safety rules, environment protection, state safety, and maintains audit trail.\nOther sessions should delegate Terraform operations here.",
+      "domains": [],
+      "keywords": [],
+      "file_patterns": [],
+      "anti_keywords": [],
+      "anti_file_patterns": []
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-terraform-expert.md",
+      "name": "ali-terraform-expert",
+      "description": "Terraform and Infrastructure as Code expert for reviewing HCL modules,\nstate management, variable patterns, provider configuration, and IaC\ntesting strategies. Use for Terraform code reviews, module design\nvalidation, and CI/CD pipeline assessment for infrastructure.",
+      "domains": [
+        "terraform",
+        "infrastructure",
+        "iac",
+        "cloud"
+      ],
+      "keywords": [
+        "Terraform",
+        "HCL",
+        "infrastructure as code",
+        "IaC",
+        "module",
+        "resource",
+        "provider",
+        "state",
+        "backend",
+        "tfvars",
+        "terraform plan",
+        "terraform apply"
+      ],
+      "file_patterns": [
+        "**/*.tf",
+        "**/*.tfvars",
+        "**/terraform/**",
+        "**/*_terraform.py"
+      ],
+      "anti_keywords": [
+        "CloudFormation only",
+        "Pulumi only"
+      ],
+      "anti_file_patterns": []
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-test-developer.md",
+      "name": "ali-test-developer",
+      "description": "Test developer for implementing test strategies, test suites, and testing\npatterns. Covers unit testing, integration testing, E2E testing, BDD/Gherkin,\nproperty-based testing, and AI-assisted testing. Use for writing tests,\ncreating fixtures, implementing step definitions, and building test infrastructure.",
+      "domains": [
+        "testing",
+        "quality",
+        "test-automation"
+      ],
+      "keywords": [
+        "test",
+        "testing",
+        "pytest",
+        "jest",
+        "playwright",
+        "BDD",
+        "Gherkin",
+        "assertion",
+        "mock",
+        "fixture",
+        "test coverage",
+        "unit test",
+        "integration test",
+        "e2e",
+        "end-to-end",
+        "implement",
+        "create",
+        "build",
+        "develop",
+        "write"
+      ],
+      "file_patterns": [
+        "**/test/**",
+        "**/tests/**",
+        "**/*_test.py",
+        "**/*.test.ts",
+        "**/*.test.tsx",
+        "**/*.spec.ts",
+        "**/*.feature",
+        "**/conftest.py",
+        "**/*steps.ts"
+      ],
+      "anti_keywords": [
+        "review only",
+        "audit only"
+      ],
+      "anti_file_patterns": [
+        "**/skills/**/SKILL.md",
+        "**/agents/**/*.md",
+        "**/CLAUDE.md",
+        "**/ARCHITECTURE.md",
+        "**/README.md"
+      ]
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-testing-expert.md",
+      "name": "ali-testing-expert",
+      "description": "Software testing expert for reviewing test strategies, test coverage, test\nquality, and testing patterns. Covers unit testing, integration testing,\nE2E testing, BDD/Gherkin, property-based testing, and AI-assisted testing.\nUse for test suite reviews, coverage analysis, and testing approach validation.",
+      "domains": [
+        "testing",
+        "quality",
+        "test-automation"
+      ],
+      "keywords": [
+        "test",
+        "testing",
+        "pytest",
+        "jest",
+        "playwright",
+        "BDD",
+        "Gherkin",
+        "assertion",
+        "mock",
+        "fixture",
+        "test coverage",
+        "unit test",
+        "integration test",
+        "e2e",
+        "end-to-end"
+      ],
+      "file_patterns": [
+        "**/test/**",
+        "**/tests/**",
+        "**/*_test.py",
+        "**/*.test.ts",
+        "**/*.test.tsx",
+        "**/*.spec.ts",
+        "**/*.feature",
+        "**/conftest.py",
+        "**/*steps.ts"
+      ],
+      "anti_keywords": [],
+      "anti_file_patterns": []
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-ux-expert.md",
+      "name": "ali-ux-expert",
+      "description": "User experience expert for reviewing user flows, accessibility compliance,\nusability patterns, information architecture, and interaction design. Use for\nformal reviews of UX design, user interfaces, navigation, and user journeys.",
+      "domains": [
+        "ux",
+        "usability",
+        "accessibility",
+        "user-interface",
+        "user-experience"
+      ],
+      "keywords": [
+        "usability",
+        "accessibility",
+        "WCAG",
+        "ARIA",
+        "user flow",
+        "navigation",
+        "form",
+        "keyboard",
+        "screen reader",
+        "mobile",
+        "responsive"
+      ],
+      "file_patterns": [
+        "**/*.tsx",
+        "**/*.jsx",
+        "**/pages/**",
+        "**/components/**",
+        "**/ui/**",
+        "**/ux/**"
+      ],
+      "anti_keywords": [
+        "backend only",
+        "database only",
+        "infrastructure only"
+      ],
+      "anti_file_patterns": []
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-wherescape-expert.md",
+      "name": "ali-wherescape-expert",
+      "description": "WhereScape data warehouse automation expert for reviewing template-based code generation,\nData Vault automation, scheduler configurations, and metadata-driven transformations.\nUse for formal reviews of WhereScape object designs, custom templates,\nand lineage integration with Collibra.",
+      "domains": [
+        "data-warehouse-automation",
+        "wherescape",
+        "etl-automation",
+        "metadata-driven",
+        "data-vault"
+      ],
+      "keywords": [
+        "WhereScape",
+        "WhereScape RED",
+        "WhereScape 3D",
+        "template",
+        "metadata-driven",
+        "code generation",
+        "Data Vault",
+        "hub",
+        "link",
+        "satellite",
+        "load table",
+        "stage table",
+        "dimension",
+        "fact table",
+        "scheduler",
+        "BRFplus",
+        "lineage"
+      ],
+      "file_patterns": [
+        "**/wherescape/**",
+        "**/templates/**",
+        "**/dw/**",
+        "**/automation/**",
+        "**/*_wherescape*.py",
+        "**/*_template*.py"
+      ],
+      "anti_keywords": [
+        "unit test",
+        "e2e test"
+      ],
+      "anti_file_patterns": []
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-doc-review-expert.md",
+      "name": "ali-doc-review-expert",
+      "description": "Document review orchestrator. Spawns 5 parallel ali-doc-review-pass workers\n(structural, contradiction, cross-reference, style, quality) then merges\nfindings into a severity-tiered report. Accepts markdown (preferred) or\ninstructs caller to convert DOCX/PDF first. Returns READY TO SUBMIT /\nREVISE BEFORE SUBMIT / REQUIRES REWORK verdict.",
+      "domains": [
+        "document-review",
+        "proposal",
+        "writing",
+        "quality-assurance",
+        "orchestration"
+      ],
+      "keywords": [
+        "review",
+        "document review",
+        "proposal review",
+        "submission readiness",
+        "rfp",
+        "report review",
+        "writing review",
+        "structural review",
+        "contradiction",
+        "cross-reference",
+        "style review",
+        "quality review",
+        "ready to submit",
+        "revise before submit",
+        "requires rework",
+        "doc review",
+        "findings report",
+        "review summary"
+      ],
+      "file_patterns": [
+        "**/*.md",
+        "**/*.txt",
+        "**/proposal*",
+        "**/report*",
+        "**/rfp*",
+        "**/draft*"
+      ],
+      "anti_keywords": [
+        "code review",
+        "pull request",
+        "security audit",
+        "terraform",
+        "kubernetes"
+      ],
+      "anti_file_patterns": []
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-doc-review-merge.md",
+      "name": "ali-doc-review-merge",
+      "description": "Merges document review pass findings into consolidated report. Produces\nfindings-report.md (full detail) and review-summary.md (CoS-ready, max 400\ntokens). Returns READY TO SUBMIT / REVISE BEFORE SUBMIT / REQUIRES REWORK\nverdict. Used by ali-doc-review-expert workflow.",
+      "domains": [
+        "document-review",
+        "report-generation",
+        "synthesis"
+      ],
+      "keywords": [
+        "merge findings",
+        "consolidate review",
+        "findings report",
+        "review summary",
+        "verdict",
+        "doc review merge",
+        "pass findings",
+        "severity consolidation"
+      ],
+      "file_patterns": [
+        ".tmp/doc-review/**"
+      ],
+      "anti_keywords": [
+        "code review",
+        "security audit"
+      ],
+      "anti_file_patterns": []
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-doc-review-pass.md",
+      "name": "ali-doc-review-pass",
+      "description": "Generic document review pass worker. Receives a pass definition and document\npath from the orchestrator. Loads ali-doc-review skill for methodology. Reads\nthe document, applies the specified checklist, writes structured findings to\nthe output directory.",
+      "domains": [
+        "document-review",
+        "structural-analysis",
+        "writing-quality"
+      ],
+      "keywords": [
+        "structural pass",
+        "contradiction pass",
+        "cross-reference pass",
+        "style pass",
+        "quality pass",
+        "doc review pass",
+        "pass worker",
+        "checklist",
+        "findings"
+      ],
+      "file_patterns": [
+        ".tmp/doc-review/**",
+        "**/*.md"
+      ],
+      "anti_keywords": [
+        "code review",
+        "security audit",
+        "terraform"
+      ],
+      "anti_file_patterns": []
+    }
+  ]
+}
