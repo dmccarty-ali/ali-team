@@ -1,0 +1,6 @@
+{
+  "name": "ali-data",
+  "description": "Data platform agents: dbt, Kafka, Iceberg, Parquet, data architecture",
+  "version": "0.0.0",
+  "type": "agents"
+}
