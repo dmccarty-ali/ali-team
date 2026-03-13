@@ -1,0 +1,6 @@
+{
+  "name": "ali-governance",
+  "description": "Data governance agents: Collibra, MDM, SAP MDG, WhereScape",
+  "version": "0.0.0",
+  "type": "agents"
+}
