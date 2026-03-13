@@ -1,0 +1,6 @@
+{
+  "name": "ali-cloud",
+  "description": "Cloud infrastructure agents: AWS, Terraform, Docker",
+  "version": "0.0.0",
+  "type": "agents"
+}
