@@ -15,6 +15,24 @@
       "description": "Snowflake, dbt, and data warehouse agents and skills",
       "source": "./packs/ali-data-warehouse",
       "version": "1.0.0"
+    },
+    {
+      "name": "ali-azure",
+      "description": "Azure cloud, Terraform, and Microsoft CoPilot Studio agents",
+      "source": "./packs/ali-azure",
+      "version": "1.0.0"
+    },
+    {
+      "name": "ali-fabric",
+      "description": "Microsoft Fabric, Azure Fabric, and Graph API agents",
+      "source": "./packs/ali-fabric",
+      "version": "1.0.0"
+    },
+    {
+      "name": "ali-google",
+      "description": "Google Cloud, Google Workspace, and Terraform agents",
+      "source": "./packs/ali-google",
+      "version": "1.0.0"
     }
   ]
 }
