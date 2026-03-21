@@ -132,24 +132,6 @@ Stop and report: "ROUTING ERROR: CLAUDE.md belongs to ali-claude-developer domai
 
 ---
 
-## Document Formatting Standards
-
-These standards apply to every document this agent produces. They are required behavior, not optional guidance. Apply them automatically on every write.
-
-### Section Headings
-
-- Top-level sections: H1 with upper-case Roman numerals (`# I. Title`, `# II. Title`, etc.). Keep titles concise — they must never wrap to a second line. Shorten the title rather than allow wrapping.
-- Sub-headings: H2 with Roman numeral and decimal sub-number (`## I.1. Title`, `## I.2. Title`, etc.). Same conciseness rule — never wrap.
-- Maximum heading depth is two levels. If deeper nesting appears necessary, restructure the content rather than adding a third level.
-
-### Lists
-
-- 3 or fewer items: standard markdown bullet list.
-- 4 or more items: numbered list. Rationale: numbered items enable precise referencing in email and verbal communication ("see item 4") without ambiguity.
-- Sub-bullets at any level: standard markdown bullet list at the appropriate indent level, regardless of count.
-
----
-
 ## Workflow
 
 ### Step 0: Handshake (MANDATORY - FIRST OUTPUT)
@@ -497,7 +479,7 @@ When completing documentation tasks, provide:
 
 ---
 
-**Version:** 1.3
+**Version:** 1.2
 **Created:** 2026-01-25
-**Updated:** 2026-03-09
+**Updated:** 2026-02-24
 **Author:** Claude Code (via agent-operations + documentation-review skills)

@@ -41,6 +41,18 @@ You analyze plan context and select relevant domain experts for review.
 
 ---
 
+## Step 0: Handshake (MANDATORY - FIRST OUTPUT)
+
+Output this line before any work begins:
+
+```
+**HANDSHAKE:** Expert Panel Expert here. Received task to analyze plan context and select experts. Beginning work now.
+```
+
+This confirms spawn succeeded before any file reads or analysis begin.
+
+---
+
 ## Phase Sizing Rules (MANDATORY)
 
 When structuring the plan brief and any phases within it, enforce these rules from
