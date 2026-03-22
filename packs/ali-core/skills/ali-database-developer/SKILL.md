@@ -309,9 +309,9 @@ After making database changes:
 
 ## Database-Specific Skill References
 
-This skill automatically loads patterns from:
+When working on a project, reference these related skills for database-type-specific patterns:
 - `aurora-postgresql` - PostgreSQL/Aurora patterns
 - `snowflake-core` - Snowflake fundamentals
 - `snowflake-data-engineer` - Advanced Snowflake patterns
 
-The specific skill loaded depends on `architecture_stack.txt` configuration.
+These skills are context-triggered separately — they are not loaded automatically by this skill.

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-01T23:41:38.404553+00:00",
+  "generated_at": "2026-03-21T20:36:41.248404+00:00",
   "source_dir": "/Users/donmccarty/ali-ai/agents",
   "agents": [
     {
@@ -66,7 +66,9 @@
         "docker",
         "terraform"
       ],
-      "anti_file_patterns": []
+      "anti_file_patterns": [],
+      "background_safe": true,
+      "background_boundary": "no Bash in tools field"
     },
     {
       "file": "/Users/donmccarty/ali-ai/agents/ali-ai-expert.md",
@@ -108,7 +110,9 @@
         "database only",
         "infrastructure only"
       ],
-      "anti_file_patterns": []
+      "anti_file_patterns": [],
+      "background_safe": true,
+      "background_boundary": "no Bash in tools field"
     },
     {
       "file": "/Users/donmccarty/ali-ai/agents/ali-airflow-expert.md",
@@ -144,7 +148,9 @@
         "frontend",
         "UI only"
       ],
-      "anti_file_patterns": []
+      "anti_file_patterns": [],
+      "background_safe": true,
+      "background_boundary": "no Bash in tools field"
     },
     {
       "file": "/Users/donmccarty/ali-ai/agents/ali-aws-admin.md",
@@ -154,17 +160,20 @@
       "keywords": [],
       "file_patterns": [],
       "anti_keywords": [],
-      "anti_file_patterns": []
+      "anti_file_patterns": [],
+      "background_safe": false,
+      "background_boundary": "Bash-capable \u2014 guard hook exposure (ali-git-guard, ali-aws-guard)"
     },
     {
       "file": "/Users/donmccarty/ali-ai/agents/ali-aws-expert.md",
       "name": "ali-aws-expert",
-      "description": "AWS solutions architect for reviewing cloud infrastructure, IAM policies,\nS3 configurations, Lambda functions, ECS/Fargate deployments, and VPC\nnetworking. Use for security reviews, cost optimization, and architecture\nvalidation against AWS Well-Architected Framework.",
+      "description": "AWS solutions architect for reviewing cloud infrastructure, IAM policies,\nS3 configurations, Lambda functions, ECS/Fargate deployments, VPC\nnetworking, API Gateway, Step Functions, EventBridge, Bedrock, SQS/SNS,\nCloudFront, and ECR. Use for security reviews, cost optimization, and\narchitecture validation against the AWS Well-Architected Framework.",
       "domains": [
         "aws",
         "cloud",
         "infrastructure",
-        "serverless"
+        "serverless",
+        "messaging"
       ],
       "keywords": [
         "AWS",
@@ -182,7 +191,19 @@
         "DynamoDB",
         "Secrets Manager",
         "Parameter Store",
-        "CloudFormation"
+        "CloudFormation",
+        "API Gateway",
+        "Step Functions",
+        "EventBridge",
+        "Bedrock",
+        "ECR",
+        "CloudFront",
+        "ALB",
+        "Route53",
+        "Batch",
+        "CDK",
+        "boto3",
+        "Graviton"
       ],
       "file_patterns": [
         "**/*.tf",
@@ -190,14 +211,94 @@
         "**/infrastructure/**",
         "**/lambda/**",
         "**/*_lambda.py",
-        "**/ecs/**"
+        "**/ecs/**",
+        "**/cdk/**",
+        "**/sam-template*",
+        "**/template.yaml",
+        "**/bedrock/**",
+        "**/step_functions/**",
+        "**/stepfunctions/**"
       ],
       "anti_keywords": [
         "Azure",
         "GCP",
         "local only"
       ],
-      "anti_file_patterns": []
+      "anti_file_patterns": [],
+      "background_safe": true,
+      "background_boundary": "no Bash in tools field"
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-azure-admin.md",
+      "name": "ali-azure-admin",
+      "description": "Azure operations administrator for executing az CLI commands safely.\nUse this agent for ALL Azure operations - Entra ID, resource groups, RBAC, Key Vault,\nApp Service, Function Apps, and general az CLI execution.\nEnforces safety rules, cost awareness, subscription protection, and\nmaintains audit trail. Other sessions should delegate Azure operations here.",
+      "domains": [],
+      "keywords": [],
+      "file_patterns": [],
+      "anti_keywords": [],
+      "anti_file_patterns": [],
+      "background_safe": false,
+      "background_boundary": "Bash-capable \u2014 guard hook exposure (ali-git-guard, ali-aws-guard)"
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-azure-expert.md",
+      "name": "ali-azure-expert",
+      "description": "Azure solutions architect for reviewing cloud infrastructure, Entra ID\nconfigurations, App Service deployments, AKS, networking, and cost\noptimization. Use for security reviews, IAM and identity design, architecture\nvalidation against the Azure Well-Architected Framework, and Managed Identity\nvs service principal assessments.",
+      "domains": [
+        "azure",
+        "entra-id",
+        "infrastructure",
+        "iam",
+        "networking",
+        "cost-optimization"
+      ],
+      "keywords": [
+        "Azure",
+        "Entra ID",
+        "App Registration",
+        "Managed Identity",
+        "Service Principal",
+        "RBAC",
+        "Azure AD",
+        "OAuth",
+        "OIDC",
+        "Device Authorization",
+        "Conditional Access",
+        "AKS",
+        "App Service",
+        "Function App",
+        "Container Apps",
+        "VNet",
+        "NSG",
+        "Private Endpoint",
+        "Application Gateway",
+        "Key Vault",
+        "Azure Storage",
+        "Service Bus",
+        "Azure DevOps",
+        "Bicep",
+        "ARM template",
+        "Azure Monitor",
+        "Log Analytics"
+      ],
+      "file_patterns": [
+        "**/*.tf",
+        "**/bicep/**",
+        "**/*.bicep",
+        "**/arm-templates/**",
+        "**/*.json",
+        "**/infrastructure/**",
+        "**/aks/**",
+        "**/kubernetes/**"
+      ],
+      "anti_keywords": [
+        "AWS only",
+        "GCP only",
+        "local only"
+      ],
+      "anti_file_patterns": [],
+      "background_safe": true,
+      "background_boundary": "no Bash in tools field"
     },
     {
       "file": "/Users/donmccarty/ali-ai/agents/ali-azure-fabric-expert.md",
@@ -241,7 +342,9 @@
         "GCP only",
         "Snowflake only"
       ],
-      "anti_file_patterns": []
+      "anti_file_patterns": [],
+      "background_safe": true,
+      "background_boundary": "no Bash in tools field"
     },
     {
       "file": "/Users/donmccarty/ali-ai/agents/ali-backend-developer.md",
@@ -311,7 +414,9 @@
         "**/CLAUDE.md",
         "**/ARCHITECTURE.md",
         "**/README.md"
-      ]
+      ],
+      "background_safe": false,
+      "background_boundary": "Bash-capable \u2014 guard hook exposure (ali-git-guard, ali-aws-guard)"
     },
     {
       "file": "/Users/donmccarty/ali-ai/agents/ali-backend-expert.md",
@@ -367,7 +472,9 @@
         "Terraform",
         "infrastructure"
       ],
-      "anti_file_patterns": []
+      "anti_file_patterns": [],
+      "background_safe": true,
+      "background_boundary": "no Bash in tools field"
     },
     {
       "file": "/Users/donmccarty/ali-ai/agents/ali-bash-developer.md",
@@ -416,7 +523,9 @@
         "**/CLAUDE.md",
         "**/ARCHITECTURE.md",
         "**/README.md"
-      ]
+      ],
+      "background_safe": false,
+      "background_boundary": "Bash-capable \u2014 guard hook exposure (ali-git-guard, ali-aws-guard)"
     },
     {
       "file": "/Users/donmccarty/ali-ai/agents/ali-bash-expert.md",
@@ -472,7 +581,9 @@
         "sql",
         "css"
       ],
-      "anti_file_patterns": []
+      "anti_file_patterns": [],
+      "background_safe": true,
+      "background_boundary": "no Bash in tools field"
     },
     {
       "file": "/Users/donmccarty/ali-ai/agents/ali-claude-code-expert.md",
@@ -483,7 +594,9 @@
         "cli-config",
         "skills",
         "agents",
-        "mcp"
+        "mcp",
+        "hooks",
+        "permissions"
       ],
       "keywords": [
         "Claude Code",
@@ -494,7 +607,10 @@
         "settings.json",
         "slash command",
         "subagent",
-        "CLAUDE.md"
+        "CLAUDE.md",
+        "permissions",
+        "allow list",
+        "deny list"
       ],
       "file_patterns": [
         "**/CLAUDE.md",
@@ -508,7 +624,9 @@
         "backend only",
         "infrastructure only"
       ],
-      "anti_file_patterns": []
+      "anti_file_patterns": [],
+      "background_safe": true,
+      "background_boundary": "no Bash in tools field"
     },
     {
       "file": "/Users/donmccarty/ali-ai/agents/ali-claude-developer.md",
@@ -558,7 +676,9 @@
         "**/migrations/**",
         "**/tests/**",
         "**/README.md"
-      ]
+      ],
+      "background_safe": false,
+      "background_boundary": "Bash-capable \u2014 guard hook exposure (ali-git-guard, ali-aws-guard)"
     },
     {
       "file": "/Users/donmccarty/ali-ai/agents/ali-collibra-expert.md",
@@ -600,7 +720,9 @@
         "unit test",
         "e2e test"
       ],
-      "anti_file_patterns": []
+      "anti_file_patterns": [],
+      "background_safe": true,
+      "background_boundary": "no Bash in tools field"
     },
     {
       "file": "/Users/donmccarty/ali-ai/agents/ali-copilot-expert.md",
@@ -641,7 +763,9 @@
         "Claude only",
         "LangGraph only"
       ],
-      "anti_file_patterns": []
+      "anti_file_patterns": [],
+      "background_safe": true,
+      "background_boundary": "no Bash in tools field"
     },
     {
       "file": "/Users/donmccarty/ali-ai/agents/ali-data-architecture-expert.md",
@@ -684,7 +808,9 @@
         "unit test",
         "e2e test"
       ],
-      "anti_file_patterns": []
+      "anti_file_patterns": [],
+      "background_safe": true,
+      "background_boundary": "no Bash in tools field"
     },
     {
       "file": "/Users/donmccarty/ali-ai/agents/ali-data-governance-expert.md",
@@ -728,7 +854,9 @@
         "collibra configuration",
         "SAP MDG config"
       ],
-      "anti_file_patterns": []
+      "anti_file_patterns": [],
+      "background_safe": true,
+      "background_boundary": "no Bash in tools field"
     },
     {
       "file": "/Users/donmccarty/ali-ai/agents/ali-data-science-expert.md",
@@ -791,7 +919,9 @@
         "terraform",
         "infrastructure"
       ],
-      "anti_file_patterns": []
+      "anti_file_patterns": [],
+      "background_safe": true,
+      "background_boundary": "no Bash in tools field"
     },
     {
       "file": "/Users/donmccarty/ali-ai/agents/ali-database-developer.md",
@@ -844,7 +974,9 @@
         "**/ARCHITECTURE.md",
         "**/*.sh",
         "**/README.md"
-      ]
+      ],
+      "background_safe": false,
+      "background_boundary": "Bash-capable \u2014 guard hook exposure (ali-git-guard, ali-aws-guard)"
     },
     {
       "file": "/Users/donmccarty/ali-ai/agents/ali-database-expert.md",
@@ -883,7 +1015,9 @@
         "Snowflake only",
         "NoSQL only"
       ],
-      "anti_file_patterns": []
+      "anti_file_patterns": [],
+      "background_safe": true,
+      "background_boundary": "no Bash in tools field"
     },
     {
       "file": "/Users/donmccarty/ali-ai/agents/ali-dbt-expert.md",
@@ -924,7 +1058,9 @@
         "frontend only",
         "UI only"
       ],
-      "anti_file_patterns": []
+      "anti_file_patterns": [],
+      "background_safe": true,
+      "background_boundary": "no Bash in tools field"
     },
     {
       "file": "/Users/donmccarty/ali-ai/agents/ali-design-review-expert.md",
@@ -965,7 +1101,45 @@
         "styling only",
         "frontend only"
       ],
-      "anti_file_patterns": []
+      "anti_file_patterns": [],
+      "background_safe": true,
+      "background_boundary": "no Bash in tools field"
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-doc-review-expert.md",
+      "name": "ali-doc-review-expert",
+      "description": "Document review orchestrator. Spawns 5 parallel ali-doc-review-pass workers\n(structural, contradiction, cross-reference, style, quality) then merges\nfindings into a severity-tiered report. Accepts markdown (preferred) or\ninstructs caller to convert DOCX/PDF first. Returns READY TO SUBMIT /\nREVISE BEFORE SUBMIT / REQUIRES REWORK verdict.",
+      "domains": [],
+      "keywords": [],
+      "file_patterns": [],
+      "anti_keywords": [],
+      "anti_file_patterns": [],
+      "background_safe": true,
+      "background_boundary": "no Bash in tools field"
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-doc-review-merge.md",
+      "name": "ali-doc-review-merge",
+      "description": "Merges document review pass findings into consolidated report. Produces\nfindings-report.md (full detail) and review-summary.md (CoS-ready, max 400\ntokens). Returns READY TO SUBMIT / REVISE BEFORE SUBMIT / REQUIRES REWORK\nverdict. Used by ali-doc-review-expert workflow.",
+      "domains": [],
+      "keywords": [],
+      "file_patterns": [],
+      "anti_keywords": [],
+      "anti_file_patterns": [],
+      "background_safe": true,
+      "background_boundary": "no Bash in tools field"
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-doc-review-pass.md",
+      "name": "ali-doc-review-pass",
+      "description": "Generic document review pass worker. Receives a pass definition and document\npath from the orchestrator. Loads ali-doc-review skill for methodology. Reads\nthe document, applies the specified checklist, writes structured findings to\nthe output directory.",
+      "domains": [],
+      "keywords": [],
+      "file_patterns": [],
+      "anti_keywords": [],
+      "anti_file_patterns": [],
+      "background_safe": true,
+      "background_boundary": "no Bash in tools field"
     },
     {
       "file": "/Users/donmccarty/ali-ai/agents/ali-docker-admin.md",
@@ -975,7 +1149,9 @@
       "keywords": [],
       "file_patterns": [],
       "anti_keywords": [],
-      "anti_file_patterns": []
+      "anti_file_patterns": [],
+      "background_safe": false,
+      "background_boundary": "Bash-capable \u2014 guard hook exposure (ali-git-guard, ali-aws-guard)"
     },
     {
       "file": "/Users/donmccarty/ali-ai/agents/ali-docker-expert.md",
@@ -987,7 +1163,9 @@
         "containerization",
         "devops",
         "dockerfile",
-        "compose"
+        "compose",
+        "registry",
+        "ci"
       ],
       "keywords": [
         "docker",
@@ -1016,6 +1194,12 @@
         "prune",
         "swarm",
         "buildx",
+        "buildkit",
+        "docker scout",
+        "distroless",
+        "trivy",
+        "seccomp",
+        "OCI",
         "COPY",
         "ADD",
         "FROM",
@@ -1027,6 +1211,8 @@
       "file_patterns": [
         "**/Dockerfile",
         "**/Dockerfile.*",
+        "**/Containerfile",
+        "**/Containerfile.*",
         "**/docker-compose*.yml",
         "**/docker-compose*.yaml",
         "**/.dockerignore",
@@ -1042,7 +1228,9 @@
         "chef",
         "nomad"
       ],
-      "anti_file_patterns": []
+      "anti_file_patterns": [],
+      "background_safe": true,
+      "background_boundary": "no Bash in tools field"
     },
     {
       "file": "/Users/donmccarty/ali-ai/agents/ali-document-developer.md",
@@ -1085,7 +1273,9 @@
         "**/*.py",
         "**/*.ts",
         "**/*.tsx"
-      ]
+      ],
+      "background_safe": false,
+      "background_boundary": "Bash-capable \u2014 guard hook exposure (ali-git-guard, ali-aws-guard)"
     },
     {
       "file": "/Users/donmccarty/ali-ai/agents/ali-documentation-expert.md",
@@ -1117,7 +1307,9 @@
         "**/*.md"
       ],
       "anti_keywords": [],
-      "anti_file_patterns": []
+      "anti_file_patterns": [],
+      "background_safe": true,
+      "background_boundary": "no Bash in tools field"
     },
     {
       "file": "/Users/donmccarty/ali-ai/agents/ali-edi-expert.md",
@@ -1158,7 +1350,52 @@
         "FHIR only",
         "HL7 v2 only"
       ],
-      "anti_file_patterns": []
+      "anti_file_patterns": [],
+      "background_safe": true,
+      "background_boundary": "no Bash in tools field"
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-epic-integration-expert.md",
+      "name": "ali-epic-integration-expert",
+      "description": "Epic Systems integration expert for reviewing FHIR R4, HL7 v2, SMART on FHIR,\nand CDS Hooks implementations against Epic's public documentation. Use when\nreviewing Epic API integrations, validating FHIR resource usage against\nopen.epic.com specs, auditing SMART authorization flows, or checking Epic\nHL7 v2 interface configurations.",
+      "domains": [
+        "epic",
+        "epic-fhir",
+        "epic-hl7",
+        "epic-integration",
+        "smart-on-fhir"
+      ],
+      "keywords": [
+        "Epic",
+        "Epic Systems",
+        "SMART on FHIR",
+        "CDS Hooks",
+        "FHIRcast",
+        "open.epic.com",
+        "fhir.epic.com",
+        "Epic FHIR",
+        "backend service auth",
+        "MyChart",
+        "App Orchard",
+        "Epic Showroom",
+        "Hyperdrive",
+        "Care Everywhere"
+      ],
+      "file_patterns": [
+        "**/epic/**",
+        "**/*epic*.py",
+        "**/*fhir*epic*",
+        "**/smart-on-fhir/**"
+      ],
+      "anti_keywords": [
+        "EDI only",
+        "X12 only",
+        "Snowflake only",
+        "Terraform only"
+      ],
+      "anti_file_patterns": [],
+      "background_safe": true,
+      "background_boundary": "no Bash in tools field"
     },
     {
       "file": "/Users/donmccarty/ali-ai/agents/ali-expert-panel-expert.md",
@@ -1177,7 +1414,9 @@
       ],
       "file_patterns": [],
       "anti_keywords": [],
-      "anti_file_patterns": []
+      "anti_file_patterns": [],
+      "background_safe": true,
+      "background_boundary": "no Bash in tools field"
     },
     {
       "file": "/Users/donmccarty/ali-ai/agents/ali-fhir-hl7-expert.md",
@@ -1218,7 +1457,9 @@
         "EDI only",
         "X12 only"
       ],
-      "anti_file_patterns": []
+      "anti_file_patterns": [],
+      "background_safe": true,
+      "background_boundary": "no Bash in tools field"
     },
     {
       "file": "/Users/donmccarty/ali-ai/agents/ali-frontend-developer.md",
@@ -1282,7 +1523,9 @@
         "**/CLAUDE.md",
         "**/ARCHITECTURE.md",
         "**/README.md"
-      ]
+      ],
+      "background_safe": false,
+      "background_boundary": "Bash-capable \u2014 guard hook exposure (ali-git-guard, ali-aws-guard)"
     },
     {
       "file": "/Users/donmccarty/ali-ai/agents/ali-frontend-expert.md",
@@ -1331,7 +1574,9 @@
         "API only",
         "Terraform"
       ],
-      "anti_file_patterns": []
+      "anti_file_patterns": [],
+      "background_safe": true,
+      "background_boundary": "no Bash in tools field"
     },
     {
       "file": "/Users/donmccarty/ali-ai/agents/ali-github-admin.md",
@@ -1341,7 +1586,9 @@
       "keywords": [],
       "file_patterns": [],
       "anti_keywords": [],
-      "anti_file_patterns": []
+      "anti_file_patterns": [],
+      "background_safe": false,
+      "background_boundary": "Bash-capable \u2014 guard hook exposure (ali-git-guard, ali-aws-guard)"
     },
     {
       "file": "/Users/donmccarty/ali-ai/agents/ali-github-expert.md",
@@ -1379,7 +1626,21 @@
         "infrastructure only",
         "local git only"
       ],
-      "anti_file_patterns": []
+      "anti_file_patterns": [],
+      "background_safe": true,
+      "background_boundary": "no Bash in tools field"
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-google-admin.md",
+      "name": "ali-google-admin",
+      "description": "Google Cloud Platform operations administrator for executing gcloud CLI commands safely.\nUse this agent for ALL GCP operations - IAM, Compute, GKE, Cloud Run, Cloud Storage,\nCloud SQL, networking, and general gcloud CLI execution.\nEnforces safety rules, cost awareness, project protection, and\nmaintains audit trail. Other sessions should delegate GCP operations here.",
+      "domains": [],
+      "keywords": [],
+      "file_patterns": [],
+      "anti_keywords": [],
+      "anti_file_patterns": [],
+      "background_safe": false,
+      "background_boundary": "Bash-capable \u2014 guard hook exposure (ali-git-guard, ali-aws-guard)"
     },
     {
       "file": "/Users/donmccarty/ali-ai/agents/ali-google-apps-script-expert.md",
@@ -1414,7 +1675,21 @@
         "backend only",
         "database only"
       ],
-      "anti_file_patterns": []
+      "anti_file_patterns": [],
+      "background_safe": true,
+      "background_boundary": "no Bash in tools field"
+    },
+    {
+      "file": "/Users/donmccarty/ali-ai/agents/ali-google-workspace-admin.md",
+      "name": "ali-google-workspace-admin",
+      "description": "Google Workspace administrator for managing users, groups, OrgUnits, and\ndomain policies via Admin SDK and gcloud CLI.\nUse this agent for ALL Workspace admin operations - user lifecycle, group\nmanagement, OrgUnit structure, domain-wide policies, and admin reports.\nEnforces safety rules, requires confirmation for destructive operations,\nand maintains audit trail.",
+      "domains": [],
+      "keywords": [],
+      "file_patterns": [],
+      "anti_keywords": [],
+      "anti_file_patterns": [],
+      "background_safe": false,
+      "background_boundary": "Bash-capable \u2014 guard hook exposure (ali-git-guard, ali-aws-guard)"
     },
     {
       "file": "/Users/donmccarty/ali-ai/agents/ali-graph-api-expert.md",
@@ -1466,7 +1741,9 @@
         "graph-powershell",
         "SharePoint on-premises"
       ],
-      "anti_file_patterns": []
+      "anti_file_patterns": [],
+      "background_safe": true,
+      "background_boundary": "no Bash in tools field"
     },
     {
       "file": "/Users/donmccarty/ali-ai/agents/ali-graphics-expert.md",
@@ -1509,7 +1786,9 @@
         "database only",
         "API only"
       ],
-      "anti_file_patterns": []
+      "anti_file_patterns": [],
+      "background_safe": true,
+      "background_boundary": "no Bash in tools field"
     },
     {
       "file": "/Users/donmccarty/ali-ai/agents/ali-iceberg-expert.md",
@@ -1556,7 +1835,9 @@
         "unit test",
         "e2e test"
       ],
-      "anti_file_patterns": []
+      "anti_file_patterns": [],
+      "background_safe": true,
+      "background_boundary": "no Bash in tools field"
     },
     {
       "file": "/Users/donmccarty/ali-ai/agents/ali-integrations-expert.md",
@@ -1595,7 +1876,9 @@
         "database only",
         "infrastructure only"
       ],
-      "anti_file_patterns": []
+      "anti_file_patterns": [],
+      "background_safe": true,
+      "background_boundary": "no Bash in tools field"
     },
     {
       "file": "/Users/donmccarty/ali-ai/agents/ali-kafka-expert.md",
@@ -1641,7 +1924,9 @@
         "unit test",
         "e2e test"
       ],
-      "anti_file_patterns": []
+      "anti_file_patterns": [],
+      "background_safe": true,
+      "background_boundary": "no Bash in tools field"
     },
     {
       "file": "/Users/donmccarty/ali-ai/agents/ali-langgraph-expert.md",
@@ -1678,7 +1963,9 @@
         "frontend only",
         "database only"
       ],
-      "anti_file_patterns": []
+      "anti_file_patterns": [],
+      "background_safe": true,
+      "background_boundary": "no Bash in tools field"
     },
     {
       "file": "/Users/donmccarty/ali-ai/agents/ali-machine-learning-expert.md",
@@ -1747,7 +2034,9 @@
         "component",
         "ui"
       ],
-      "anti_file_patterns": []
+      "anti_file_patterns": [],
+      "background_safe": true,
+      "background_boundary": "no Bash in tools field"
     },
     {
       "file": "/Users/donmccarty/ali-ai/agents/ali-macos-admin.md",
@@ -1757,7 +2046,9 @@
       "keywords": [],
       "file_patterns": [],
       "anti_keywords": [],
-      "anti_file_patterns": []
+      "anti_file_patterns": [],
+      "background_safe": false,
+      "background_boundary": "Bash-capable \u2014 guard hook exposure (ali-git-guard, ali-aws-guard)"
     },
     {
       "file": "/Users/donmccarty/ali-ai/agents/ali-macos-expert.md",
@@ -1796,7 +2087,9 @@
         "**/*automation*.sh"
       ],
       "anti_keywords": [],
-      "anti_file_patterns": []
+      "anti_file_patterns": [],
+      "background_safe": true,
+      "background_boundary": "no Bash in tools field"
     },
     {
       "file": "/Users/donmccarty/ali-ai/agents/ali-manufacturing-expert.md",
@@ -1858,7 +2151,9 @@
         "HL7",
         "tax preparation"
       ],
-      "anti_file_patterns": []
+      "anti_file_patterns": [],
+      "background_safe": true,
+      "background_boundary": "no Bash in tools field"
     },
     {
       "file": "/Users/donmccarty/ali-ai/agents/ali-mdm-strategy-expert.md",
@@ -1905,7 +2200,9 @@
         "BRFplus",
         "SAP transaction codes"
       ],
-      "anti_file_patterns": []
+      "anti_file_patterns": [],
+      "background_safe": true,
+      "background_boundary": "no Bash in tools field"
     },
     {
       "file": "/Users/donmccarty/ali-ai/agents/ali-merge-synthesis-expert.md",
@@ -1915,7 +2212,9 @@
       "keywords": [],
       "file_patterns": [],
       "anti_keywords": [],
-      "anti_file_patterns": []
+      "anti_file_patterns": [],
+      "background_safe": true,
+      "background_boundary": "no Bash in tools field"
     },
     {
       "file": "/Users/donmccarty/ali-ai/agents/ali-ocm-expert.md",
@@ -1962,7 +2261,9 @@
         "code review",
         "unit test"
       ],
-      "anti_file_patterns": []
+      "anti_file_patterns": [],
+      "background_safe": true,
+      "background_boundary": "no Bash in tools field"
     },
     {
       "file": "/Users/donmccarty/ali-ai/agents/ali-parquet-expert.md",
@@ -1997,7 +2298,9 @@
         "csv",
         "json only"
       ],
-      "anti_file_patterns": []
+      "anti_file_patterns": [],
+      "background_safe": true,
+      "background_boundary": "no Bash in tools field"
     },
     {
       "file": "/Users/donmccarty/ali-ai/agents/ali-plan-agent.md",
@@ -2026,12 +2329,14 @@
         "remediation plan from findings",
         "convert findings"
       ],
-      "anti_file_patterns": []
+      "anti_file_patterns": [],
+      "background_safe": false,
+      "background_boundary": "Bash-capable \u2014 guard hook exposure (ali-git-guard, ali-aws-guard)"
     },
     {
       "file": "/Users/donmccarty/ali-ai/agents/ali-plan-builder.md",
       "name": "ali-plan-builder",
-      "description": "Orchestrates implementation plan creation through sequential expert collaboration.\nSelects relevant experts from manifest, spawns sequentially, synthesizes findings\nincrementally via merge-synthesizer, and prepares executive summary for Chief of\nStaff (main session) to present to user for approval.\n\nUse when:\n- Converting expert panel findings into remediation plans\n- Creating implementation plans that need multi-domain buy-in\n- Formalizing plans that require expert review before execution",
+      "description": "Orchestrates the two-mode design-first plan-builder workflow defined in\nskills/plan-builder/SKILL.md. In design mode, produces a validated design doc\nfrom a feature brief via expert collaboration and iteration-until-clean review.\nIn implement mode, produces a phase-separated implementation plan from an\napproved design doc. See skills/plan-builder/SKILL.md for the primary workflow\ndefinition, mode detection logic, draft mode, safety valve behavior, and open\nquestion escalation.\n\nUse when:\n- Converting feature briefs into validated design documents (design mode)\n- Converting approved design docs into implementation plans (implement mode)\n- Creating implementation plans that need multi-domain buy-in\n- Formalizing plans that require expert review before execution\n- Converting expert panel findings into remediation plans",
       "domains": [
         "orchestration",
         "planning",
@@ -2056,7 +2361,9 @@
         "apply template",
         "revise plan"
       ],
-      "anti_file_patterns": []
+      "anti_file_patterns": [],
+      "background_safe": false,
+      "background_boundary": "full Write + Task scope \u2014 can spawn Bash sub-agents; untested in background context; treat conservatively"
     },
     {
       "file": "/Users/donmccarty/ali-ai/agents/ali-plan-reviewer.md",
@@ -2088,7 +2395,9 @@
         "architecture review",
         "expert panel"
       ],
-      "anti_file_patterns": []
+      "anti_file_patterns": [],
+      "background_safe": true,
+      "background_boundary": "no Bash in tools field"
     },
     {
       "file": "/Users/donmccarty/ali-ai/agents/ali-rcm-expert.md",
@@ -2143,7 +2452,9 @@
         "FHIR only",
         "clinical documentation only"
       ],
-      "anti_file_patterns": []
+      "anti_file_patterns": [],
+      "background_safe": true,
+      "background_boundary": "no Bash in tools field"
     },
     {
       "file": "/Users/donmccarty/ali-ai/agents/ali-rfp-response-expert.md",
@@ -2174,7 +2485,9 @@
         "code review",
         "security audit"
       ],
-      "anti_file_patterns": []
+      "anti_file_patterns": [],
+      "background_safe": true,
+      "background_boundary": "no Bash in tools field"
     },
     {
       "file": "/Users/donmccarty/ali-ai/agents/ali-sap-mdg-expert.md",
@@ -2218,19 +2531,26 @@
         "unit test",
         "e2e test"
       ],
-      "anti_file_patterns": []
+      "anti_file_patterns": [],
+      "background_safe": true,
+      "background_boundary": "no Bash in tools field"
     },
     {
       "file": "/Users/donmccarty/ali-ai/agents/ali-security-expert.md",
       "name": "ali-security-expert",
-      "description": "Security and data privacy expert for reviewing code and plans against OWASP Top 10, HIPAA,\nWISP, IRS Pub 4557, GDPR, CCPA, and secure coding standards. Use for formal security\nreviews, vulnerability assessments, compliance validation, and data privacy assessments.",
+      "description": "Security and data privacy expert for reviewing code and plans against OWASP Top 10 2021,\nOWASP LLM Top 10, HIPAA, WISP, IRS Pub 4557, GDPR, CCPA, and secure coding standards.\nAlso covers container security, IaC security, CI/CD pipeline security, supply chain\nsecurity, and secrets scanning. Use for formal security reviews, vulnerability\nassessments, compliance validation, and data privacy assessments.",
       "domains": [
         "security",
         "compliance",
         "authentication",
         "authorization",
         "data-privacy",
-        "regulatory-compliance"
+        "regulatory-compliance",
+        "container-security",
+        "iac-security",
+        "cicd-security",
+        "supply-chain-security",
+        "llm-security"
       ],
       "keywords": [
         "authentication",
@@ -2246,6 +2566,7 @@
         "SQL injection",
         "XSS",
         "CSRF",
+        "SSRF",
         "secrets",
         "security",
         "vulnerability",
@@ -2261,7 +2582,20 @@
         "privacy impact assessment",
         "data retention",
         "cross-border",
-        "Privacy by Design"
+        "Privacy by Design",
+        "container",
+        "docker",
+        "Dockerfile",
+        "terraform",
+        "IaC",
+        "pipeline",
+        "supply chain",
+        "dependency confusion",
+        "prompt injection",
+        "LLM security",
+        "secrets scanning",
+        "dependency",
+        "CVE"
       ],
       "file_patterns": [
         "**/auth/**",
@@ -2270,10 +2604,21 @@
         "**/*_security.py",
         "**/*auth*.tsx",
         "**/login/**",
-        "**/oauth/**"
+        "**/oauth/**",
+        "**/Dockerfile*",
+        "**/docker-compose*.yml",
+        "**/docker-compose*.yaml",
+        "**/*.tf",
+        "**/.github/workflows/**",
+        "**/requirements*.txt",
+        "**/package*.json",
+        "**/Pipfile*",
+        "**/pyproject.toml"
       ],
       "anti_keywords": [],
-      "anti_file_patterns": []
+      "anti_file_patterns": [],
+      "background_safe": true,
+      "background_boundary": "no Bash in tools field"
     },
     {
       "file": "/Users/donmccarty/ali-ai/agents/ali-snowflake-admin.md",
@@ -2283,17 +2628,21 @@
       "keywords": [],
       "file_patterns": [],
       "anti_keywords": [],
-      "anti_file_patterns": []
+      "anti_file_patterns": [],
+      "background_safe": false,
+      "background_boundary": "Bash-capable \u2014 guard hook exposure (ali-git-guard, ali-aws-guard)"
     },
     {
       "file": "/Users/donmccarty/ali-ai/agents/ali-snowflake-expert.md",
       "name": "ali-snowflake-expert",
-      "description": "Snowflake data warehouse expert for reviewing SQL queries, performance tuning,\nwarehouse sizing, clustering strategies, data sharing, Time Travel, and cost\noptimization. Use for formal reviews of Snowflake-specific implementations,\narchitecture decisions, and query performance.",
+      "description": "Snowflake data warehouse expert for reviewing SQL queries, performance tuning,\nwarehouse sizing, clustering strategies, data sharing, Time Travel, cost\noptimization, Snowpark, Cortex AI, dynamic tables, hybrid tables, and\ngovernance. Use for formal reviews of Snowflake-specific implementations,\narchitecture decisions, and query performance.",
       "domains": [
         "snowflake",
         "data-warehouse",
         "cloud-database",
-        "analytics"
+        "analytics",
+        "data-engineering",
+        "ml-platform"
       ],
       "keywords": [
         "Snowflake",
@@ -2308,20 +2657,39 @@
         "data sharing",
         "virtual warehouse",
         "query profile",
-        "result cache"
+        "result cache",
+        "Snowpark",
+        "Cortex",
+        "Cortex AI",
+        "dynamic table",
+        "hybrid table",
+        "Streamlit in Snowflake",
+        "FLATTEN",
+        "VARIANT",
+        "external table",
+        "Iceberg",
+        "ML functions",
+        "SENTIMENT",
+        "SUMMARIZE",
+        "COMPLETE"
       ],
       "file_patterns": [
         "**/*snowflake*.sql",
         "**/*snowflake*.py",
         "**/snowflake/**",
-        "**/*.sql"
+        "**/snowpark/**",
+        "**/*cortex*",
+        "**/*.sql",
+        "**/*.ipynb"
       ],
       "anti_keywords": [
         "PostgreSQL only",
         "MySQL only",
         "local database"
       ],
-      "anti_file_patterns": []
+      "anti_file_patterns": [],
+      "background_safe": true,
+      "background_boundary": "no Bash in tools field"
     },
     {
       "file": "/Users/donmccarty/ali-ai/agents/ali-sow-orchestrator.md",
@@ -2355,7 +2723,9 @@
         "single domain",
         "simple task"
       ],
-      "anti_file_patterns": []
+      "anti_file_patterns": [],
+      "background_safe": true,
+      "background_boundary": "no Bash in tools field"
     },
     {
       "file": "/Users/donmccarty/ali-ai/agents/ali-sow-scoping-expert.md",
@@ -2396,7 +2766,9 @@
         "code only",
         "implementation only"
       ],
-      "anti_file_patterns": []
+      "anti_file_patterns": [],
+      "background_safe": true,
+      "background_boundary": "no Bash in tools field"
     },
     {
       "file": "/Users/donmccarty/ali-ai/agents/ali-starburst-expert.md",
@@ -2443,7 +2815,9 @@
         "unit test",
         "e2e test"
       ],
-      "anti_file_patterns": []
+      "anti_file_patterns": [],
+      "background_safe": true,
+      "background_boundary": "no Bash in tools field"
     },
     {
       "file": "/Users/donmccarty/ali-ai/agents/ali-streamlit-expert.md",
@@ -2479,7 +2853,9 @@
         "API only",
         "database only"
       ],
-      "anti_file_patterns": []
+      "anti_file_patterns": [],
+      "background_safe": true,
+      "background_boundary": "no Bash in tools field"
     },
     {
       "file": "/Users/donmccarty/ali-ai/agents/ali-svg-expert.md",
@@ -2512,7 +2888,9 @@
         "backend only",
         "database only"
       ],
-      "anti_file_patterns": []
+      "anti_file_patterns": [],
+      "background_safe": true,
+      "background_boundary": "no Bash in tools field"
     },
     {
       "file": "/Users/donmccarty/ali-ai/agents/ali-tax-expert.md",
@@ -2551,7 +2929,9 @@
         "infrastructure only",
         "database only"
       ],
-      "anti_file_patterns": []
+      "anti_file_patterns": [],
+      "background_safe": true,
+      "background_boundary": "no Bash in tools field"
     },
     {
       "file": "/Users/donmccarty/ali-ai/agents/ali-technical-feasibility-expert.md",
@@ -2593,7 +2973,9 @@
         "already built",
         "refactor only"
       ],
-      "anti_file_patterns": []
+      "anti_file_patterns": [],
+      "background_safe": true,
+      "background_boundary": "no Bash in tools field"
     },
     {
       "file": "/Users/donmccarty/ali-ai/agents/ali-terraform-admin.md",
@@ -2603,7 +2985,9 @@
       "keywords": [],
       "file_patterns": [],
       "anti_keywords": [],
-      "anti_file_patterns": []
+      "anti_file_patterns": [],
+      "background_safe": false,
+      "background_boundary": "Bash-capable \u2014 guard hook exposure (ali-git-guard, ali-aws-guard)"
     },
     {
       "file": "/Users/donmccarty/ali-ai/agents/ali-terraform-expert.md",
@@ -2639,7 +3023,9 @@
         "CloudFormation only",
         "Pulumi only"
       ],
-      "anti_file_patterns": []
+      "anti_file_patterns": [],
+      "background_safe": true,
+      "background_boundary": "no Bash in tools field"
     },
     {
       "file": "/Users/donmccarty/ali-ai/agents/ali-test-developer.md",
@@ -2693,7 +3079,9 @@
         "**/CLAUDE.md",
         "**/ARCHITECTURE.md",
         "**/README.md"
-      ]
+      ],
+      "background_safe": false,
+      "background_boundary": "Bash-capable \u2014 guard hook exposure (ali-git-guard, ali-aws-guard)"
     },
     {
       "file": "/Users/donmccarty/ali-ai/agents/ali-testing-expert.md",
@@ -2733,7 +3121,9 @@
         "**/*steps.ts"
       ],
       "anti_keywords": [],
-      "anti_file_patterns": []
+      "anti_file_patterns": [],
+      "background_safe": true,
+      "background_boundary": "no Bash in tools field"
     },
     {
       "file": "/Users/donmccarty/ali-ai/agents/ali-ux-expert.md",
@@ -2772,7 +3162,9 @@
         "database only",
         "infrastructure only"
       ],
-      "anti_file_patterns": []
+      "anti_file_patterns": [],
+      "background_safe": true,
+      "background_boundary": "no Bash in tools field"
     },
     {
       "file": "/Users/donmccarty/ali-ai/agents/ali-wherescape-expert.md",
@@ -2816,114 +3208,9 @@
         "unit test",
         "e2e test"
       ],
-      "anti_file_patterns": []
-    },
-    {
-      "file": "/Users/donmccarty/ali-ai/agents/ali-doc-review-expert.md",
-      "name": "ali-doc-review-expert",
-      "description": "Document review orchestrator. Spawns 5 parallel ali-doc-review-pass workers\n(structural, contradiction, cross-reference, style, quality) then merges\nfindings into a severity-tiered report. Accepts markdown (preferred) or\ninstructs caller to convert DOCX/PDF first. Returns READY TO SUBMIT /\nREVISE BEFORE SUBMIT / REQUIRES REWORK verdict.",
-      "domains": [
-        "document-review",
-        "proposal",
-        "writing",
-        "quality-assurance",
-        "orchestration"
-      ],
-      "keywords": [
-        "review",
-        "document review",
-        "proposal review",
-        "submission readiness",
-        "rfp",
-        "report review",
-        "writing review",
-        "structural review",
-        "contradiction",
-        "cross-reference",
-        "style review",
-        "quality review",
-        "ready to submit",
-        "revise before submit",
-        "requires rework",
-        "doc review",
-        "findings report",
-        "review summary"
-      ],
-      "file_patterns": [
-        "**/*.md",
-        "**/*.txt",
-        "**/proposal*",
-        "**/report*",
-        "**/rfp*",
-        "**/draft*"
-      ],
-      "anti_keywords": [
-        "code review",
-        "pull request",
-        "security audit",
-        "terraform",
-        "kubernetes"
-      ],
-      "anti_file_patterns": []
-    },
-    {
-      "file": "/Users/donmccarty/ali-ai/agents/ali-doc-review-merge.md",
-      "name": "ali-doc-review-merge",
-      "description": "Merges document review pass findings into consolidated report. Produces\nfindings-report.md (full detail) and review-summary.md (CoS-ready, max 400\ntokens). Returns READY TO SUBMIT / REVISE BEFORE SUBMIT / REQUIRES REWORK\nverdict. Used by ali-doc-review-expert workflow.",
-      "domains": [
-        "document-review",
-        "report-generation",
-        "synthesis"
-      ],
-      "keywords": [
-        "merge findings",
-        "consolidate review",
-        "findings report",
-        "review summary",
-        "verdict",
-        "doc review merge",
-        "pass findings",
-        "severity consolidation"
-      ],
-      "file_patterns": [
-        ".tmp/doc-review/**"
-      ],
-      "anti_keywords": [
-        "code review",
-        "security audit"
-      ],
-      "anti_file_patterns": []
-    },
-    {
-      "file": "/Users/donmccarty/ali-ai/agents/ali-doc-review-pass.md",
-      "name": "ali-doc-review-pass",
-      "description": "Generic document review pass worker. Receives a pass definition and document\npath from the orchestrator. Loads ali-doc-review skill for methodology. Reads\nthe document, applies the specified checklist, writes structured findings to\nthe output directory.",
-      "domains": [
-        "document-review",
-        "structural-analysis",
-        "writing-quality"
-      ],
-      "keywords": [
-        "structural pass",
-        "contradiction pass",
-        "cross-reference pass",
-        "style pass",
-        "quality pass",
-        "doc review pass",
-        "pass worker",
-        "checklist",
-        "findings"
-      ],
-      "file_patterns": [
-        ".tmp/doc-review/**",
-        "**/*.md"
-      ],
-      "anti_keywords": [
-        "code review",
-        "security audit",
-        "terraform"
-      ],
-      "anti_file_patterns": []
+      "anti_file_patterns": [],
+      "background_safe": true,
+      "background_boundary": "no Bash in tools field"
     }
   ]
 }
