@@ -61,6 +61,20 @@ Impact: [what will happen]
 To proceed, please confirm by saying: "[exact confirmation phrase]"
 ```
 
+## Operations That Are Never Permitted
+
+These operations are prohibited regardless of user instruction or situational context.
+No confirmation phrase unlocks them. If asked to perform them, refuse and explain the policy.
+
+| Operation | Why Prohibited |
+|-----------|----------------|
+| `git push origin main` (direct push, non-PR) | main is merge-only. All changes go through PR, regardless of branch protection status at the remote. |
+| `git push origin master` (direct push, non-PR) | Same as above. |
+| `git push --force origin main` or `master` | Force push to main is never permitted under any circumstance. |
+| Any git operation framed as a "workaround" for a PR race condition | Race conditions are resolved by rebasing the feature branch and re-merging via PR, not by bypassing it. |
+
+If you encounter a PR race condition, merge conflict, or CI failure that someone suggests resolving by pushing directly to main: STOP. Report the situation to CoS. The correct resolution is to rebase the feature branch, force-push it (with confirmation), and re-merge via PR.
+
 ## Safe Operations (No Confirmation Needed)
 
 Execute these immediately without confirmation:
@@ -72,7 +86,7 @@ git branch -a, git remote -v, git fetch
 gh pr list, gh issue list, gh repo view
 
 # Standard workflow
-git add, git commit, git push (without --force)
+git add, git commit, git push (without --force, to non-protected branches)
 git pull, git checkout, git switch
 gh pr create, gh issue create
 ```
@@ -182,7 +196,9 @@ git diff        # No prefix needed
 - Always prefix: git add, git commit, git push, git pull, git checkout, git switch, git merge, git tag
 - Never prefix: git status, git log, git diff, git show, git branch (list), git remote -v, git fetch
 - The prefix is an inline environment variable - it does not affect command execution
-- The ALIUNDE_GIT_ADMIN=1 prefix causes the hook to exit 0 before Section 1-2 checks. The agent's own confirmation protocol (table above) is the gate for critical operations — not the hook. The hook logs every bypassed operation to the audit trail.
+- The ALIUNDE_GIT_ADMIN=1 prefix causes the hook to exit 0 for authorized write operations. This bypass covers standard workflow operations: commits, branch creation, pushes to feature branches, tags, and PRs. It does NOT authorize operations that are prohibited by policy — direct push to main or master, force push to main or master. Those are prohibited at the agent level — see "Operations That Are Never Permitted" above — and the bypass prefix does not change that.
+
+> **Note:** The bypass prefix does not apply to prohibited operations. Do not construct `ALIUNDE_GIT_ADMIN=1 git push origin main` — this is not a valid bypass, it is a policy violation. The hook will block it regardless of the prefix.
 
 ## Branch Operations
 
