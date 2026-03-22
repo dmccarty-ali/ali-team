@@ -1,6 +1,6 @@
 {
   "name": "ali-ai",
   "description": "AI/ML development agents: LangGraph, ML, Airflow, Streamlit",
-  "version": "v0.4.1",
+  "version": "v0.4.6",
   "type": "agents"
 }
