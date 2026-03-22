@@ -1,6 +1,6 @@
 {
   "name": "ali-healthcare",
   "description": "Healthcare data agents: FHIR/HL7, EDI, RCM",
-  "version": "0.0.0",
+  "version": "v0.4.8",
   "type": "agents"
 }
