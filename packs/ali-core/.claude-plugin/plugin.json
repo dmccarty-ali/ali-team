@@ -1,5 +1,8 @@
 {
   "name": "ali-core",
   "description": "Core agents and skills for all Aliunde projects",
-  "author": { "name": "Aliunde" }
+  "author": {
+    "name": "Aliunde"
+  },
+  "version": "v0.4.7"
 }
