@@ -1,6 +1,6 @@
 {
   "name": "ali-azure",
   "description": "Azure platform agents: Fabric, Copilot, Graph API",
-  "version": "0.0.0",
+  "version": "v0.4.5",
   "type": "agents"
 }
