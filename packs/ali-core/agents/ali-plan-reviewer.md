@@ -4,7 +4,7 @@ description: >
   Implementation plan reviewer that produces structured PASS/FAIL verdicts
   against clean criteria. Use during plan-builder implement mode to validate
   implementation plan drafts through an iteration-until-clean loop.
-model: sonnet
+model: opus
 skills: ali-agent-operations
 tools: Read, Write(.tmp/**)
 

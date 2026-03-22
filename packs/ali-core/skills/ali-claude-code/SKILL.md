@@ -7,7 +7,10 @@ description: |
   considering permission strategies, evaluating MCP server integrations
 
   IMPLEMENTATION: Creating CLAUDE.md files, writing skills, defining agents,
-  configuring hooks, setting up MCP servers, writing slash commands
+  configuring hooks, setting up MCP servers, writing slash commands,
+  creating or editing agent files (agents/*.md), setting agent frontmatter
+  fields (tools:, skills:, name:, model:, description:), referencing
+  AGENT_CREATION_GUIDE.md, specifying tools format or skills format in YAML
 
   GUIDANCE: Asking about Claude Code features, best practices for configuration,
   how to structure skills, what hooks to use, permission patterns
@@ -35,6 +38,10 @@ This skill activates when the conversation involves:
 - Configuring hooks for automation
 - Setting up MCP servers
 - Writing custom slash commands
+- Writing or creating agent files (agents/*.md)
+- Setting agent frontmatter fields (tools:, skills:, name:, model:, description:)
+- Referencing AGENT_CREATION_GUIDE.md
+- Specifying tools format or skills format in YAML frontmatter
 
 **Guidance/Best Practices:**
 - Asking about Claude Code features
@@ -70,6 +77,78 @@ This skill does NOT activate for:
 - **Hooks enable automation**: Use hooks for validation, formatting, and compliance - not core logic
 - **Flat structure required**: Skills must be one level deep (skill-name/SKILL.md), no nesting
 - **@import paths must be absolute**: Claude Code does NOT expand tilde in @import paths. Use `/Users/username/path/file.md`, not `@~/path/file.md` (silently fails)
+
+---
+
+## Creating Agents in ali-ai
+
+Quick-reference for ali-ai-specific agent creation rules. Full guide: `docs/AGENT_CREATION_GUIDE.md`.
+
+### CRITICAL: tools and skills field format
+
+Tools and skills MUST use comma-separated inline format. Multi-line YAML list format does NOT work — Claude Code does not parse it.
+
+```yaml
+# CORRECT
+tools: Read, Write(.tmp/**), Grep, Glob
+skills: ali-agent-operations, ali-bash
+
+# WRONG — will not work
+tools:
+  - Read
+  - Grep
+```
+
+### Naming rules
+
+- Filename MUST use ali- prefix: `ali-{name}.md`
+- `name:` field in frontmatter must match filename without .md
+- Skill references in `skills:` field use ali- prefix (e.g., `ali-agent-operations`)
+- Exception: `plan-builder` is the only org skill without the ali- prefix
+
+### Tools by agent type
+
+| Type | tools field | Notes |
+|------|-------------|-------|
+| -expert | `Read, Write(.tmp/**), Grep, Glob` | No Bash, no Edit |
+| -admin | `Bash, Read, Grep, Glob` | Some add Edit |
+| -developer | `Read, Grep, Glob, Edit, Write, Bash` | Full write access |
+
+### expert-metadata (expert agents only)
+
+```yaml
+# Expert metadata parsed by: scripts/build_agent_manifest.py
+expert-metadata:
+  domains: [security, compliance]
+  keywords: [auth, password, token]
+  file-patterns: ["src/auth/**"]
+  anti-keywords: [css, frontend]
+```
+
+The parser comment is required. After creating or modifying an expert agent, rebuild the manifest:
+
+```bash
+python ~/.claude/bin/build_agent_manifest.py
+```
+
+### Frontmatter example (expert agent)
+
+```yaml
+---
+name: ali-security-expert
+description: Security and compliance review specialist
+model: sonnet
+skills: ali-agent-operations, ali-secure-coding
+tools: Read, Write(.tmp/**), Grep, Glob
+
+# Expert metadata parsed by: scripts/build_agent_manifest.py
+expert-metadata:
+  domains: [security, compliance]
+  keywords: [auth, password, encryption, token]
+  file-patterns: ["src/auth/**"]
+  anti-keywords: [css, frontend, ui]
+---
+```
 
 ---
 
@@ -254,6 +333,7 @@ Before marking work complete, Claude should verify:
 | Hardcoded absolute paths | Breaks on other machines | Use relative paths, environment variables |
 | No permission defaults | Repetitive prompts | Configure settings.local.json |
 | @import with tilde (~) | Tilde not expanded — file silently not loaded | Use absolute path: @/Users/username/path/file.md |
+| tools: as YAML list | Claude Code does not parse multi-line list format | Use inline comma-separated: `tools: Read, Grep, Glob` |
 
 For systematic diagnosis and step-by-step fixes, see `references/troubleshooting.md`.
 
@@ -332,6 +412,6 @@ For invoking Claude Code as a subprocess from within an active Claude Code sessi
 
 ---
 
-**Document Version:** 3.2
-**Last Updated:** 2026-02-26
+**Document Version:** 3.4
+**Last Updated:** 2026-03-16
 **Maintained By:** ALI AI Team
