@@ -1,1 +1,5 @@
-{"name": "ali-fabric", "description": "ali-fabric domain pack", "version": "0.0.0"}
+{
+  "name": "ali-fabric",
+  "description": "ali-fabric domain pack",
+  "version": "v0.4.4"
+}
