@@ -40,7 +40,7 @@ keywords:
 
 # Plan Builder Skill
 
-This skill guides the main session (as CoS) through the plan-builder workflow. Plan-builder v2 is a two-mode design-first skill: design mode validates an approach before implement mode plans the execution.
+This skill guides the main session (as CoS) through the plan-builder workflow. Plan-builder is a two-mode design-first skill: design mode validates an approach before implement mode plans the execution.
 
 ---
 
@@ -142,6 +142,15 @@ These criteria are passed verbatim to the reviewer in the delegation prompt. All
 4. **No open blocking issues:** no BLOCKING entries in reviewer verdict file
 5. **No unresolved open questions:** all Open Questions rows have Status: RESOLVED; any PENDING rows requiring human input trigger immediate user escalation (not an iteration cycle)
 6. **Scope boundaries present:** "What This Design Does Not Change" section is populated
+7. **Source references factually accurate:** Plan-agent must write claims about source
+   artifacts that are verifiable from the source or explicitly flagged VERIFY:. Plan-agent
+   habit: when making a factual claim about a source artifact, note the source file
+   parenthetically (per DATABASE_SCHEMA.sql) — this is a traceability habit, not a required
+   citation format.
+   Reviewer check: any claim in the design doc about a source artifact (syntax, structure,
+   count, schema shape) is either (a) not contradicted by the referenced file as read by
+   the reviewer, or (b) explicitly flagged with VERIFY: in the design doc; claims against
+   inaccessible source files are recorded as OPEN_QUESTIONS, not BLOCKING
 
 ---
 
@@ -192,6 +201,9 @@ Spawn codebase exploration agent (Anthropic Plan agent via Task tool with constr
 
 Spawn `ali-plan-agent` to write implementation plan at `docs/feature/{name}/plan.md` using the approved design doc and `codebase-context.md`.
 
+If any referenced source file exceeds 500 lines, apply the large-file protocol before
+the write step begins. See: skills/plan-builder/references/large-file-protocol.md
+
 ### STEP 3/3 — Iterate Until Clean (or Draft advisory)
 
 **Default (iterate-until-clean):**
@@ -225,6 +237,15 @@ These criteria are passed verbatim to the reviewer in the delegation prompt. All
 4. **Rollback plan exists:** each phase has a Rollback statement (N/A acceptable for Phase 0)
 5. **No dependency gaps:** each phase's pre-conditions are satisfiable from prior phases' outputs
 6. **Phase 0 exists:** first phase is validation-only with no code changes; design doc's acceptance criteria appear in at least one phase's verification checklist
+7. **Implementation-critical values cited:** Plan-agent must cite source files for all
+   implementation-critical values; values that cannot be verified during planning must
+   carry a VERIFY: flag with the source file name.
+   Reviewer check: all implementation-critical values in the plan (column names, function
+   signatures, API contracts, migration revision IDs, config keys, syntax blocks) include
+   a source file citation; prose descriptions without citation are present for
+   implementation-critical values only when accompanied by a VERIFY: flag;
+   unverified values carry a VERIFY: flag
+   (VERIFY-flagged values are WARNINGS, not BLOCKING)
 
 ---
 
