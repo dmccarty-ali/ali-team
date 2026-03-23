@@ -511,6 +511,7 @@ You may read any file in the project to do your job.
 | "Fix the file" | Agent doesn't know what's broken or what the file is | Explain the problem and the file's purpose |
 | Assuming prior knowledge | Agent has no memory of conversation | Provide all context explicitly |
 | Vague scope | Agent doesn't know boundaries | Define exactly what to change and what to leave alone |
+| Using Agent tool to spawn named specialists | Bypasses org agent manifest; triggers per-spawn permission dialog; dismissed dialogs misdiagnosed as user rejection; spawned subprocess may not match ISPR-approved agent | Use Task tool exclusively for all named agent delegation |
 
 ---
 
@@ -663,4 +664,21 @@ The admin agent knows not to add Co-Authored-By. You don't need to tell them.
 
 ---
 
-**Last Updated:** 2026-03-02 (add Artifact Output Pattern section; update Universal Spawn Pattern header to state pattern applies to all substantive delegations)
+## CLAUDE.md Delegation Rules
+
+When delegating CLAUDE.md writes to ali-document-developer, the delegation prompt MUST include these constraints:
+
+- Preserve all launcher patch markers exactly as-is:
+  - `<!-- ali-patch:role-v2 -->`
+  - `<!-- ali-patch:handoff-v1 -->`
+  - `<!-- ali-patch:processes-v1 -->`
+- Do NOT modify these sections: `## Role`, `## Session Handoff`, `## Predefined Processes`
+- Key Files table: only include files that currently exist on disk — do not add placeholder or anticipated files
+
+**Why patch markers matter:** The claude-ali launcher reads these markers to determine whether to auto-patch sections (role file path, handoff include, processes block). Removing or altering a marker causes the launcher to treat the section as user-managed and skip auto-patching — leading to role file path drift across sessions.
+
+**Why Key Files table matters:** The launcher may parse CLAUDE.md to detect required project files. Listing a file that does not exist creates a phantom scaffolding requirement that fires on every session launch.
+
+---
+
+**Last Updated:** 2026-03-20 (add Agent-vs-Task row to Common Mistakes table)
