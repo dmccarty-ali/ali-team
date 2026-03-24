@@ -127,7 +127,7 @@ ALIUNDE_GIT_ADMIN=1 gh pr merge 42 --squash
 ## Key Principles
 
 - **Feature branch is the org-wide default** - All work happens on feature branches; no one commits directly to main/master in any Aliunde project
-- **main is merge-only** - main is only ever touched via PR merge; direct push to main is blocked by policy and by hook
+- **main is merge-only** - main is only ever touched via PR merge; direct push to main is blocked by policy, by hook, and at the agent level regardless of hook state
 - **Never force push to main/master** - Rewrites shared history, causes team disruption
 - **Never skip hooks** - Pre-commit hooks exist for a reason (lint, test, security)
 - **Atomic commits** - Each commit should be a single logical change
@@ -232,6 +232,8 @@ These operations are blocked by git-guard and require explicit confirmation:
 | `gh repo delete` | Critical | Destroys entire repository |
 | `gh secret set/delete` | High | Modifies CI/CD secrets |
 
+**Note:** Direct push to main is NOT in this table. It is prohibited by policy — not gated by confirmation. No confirmation phrase permits it. See the agent definition "Operations That Are Never Permitted" section.
+
 ### When Force Push is Acceptable
 
 1. **Personal feature branch** - Only you are working on it
@@ -239,6 +241,8 @@ These operations are blocked by git-guard and require explicit confirmation:
 3. **Fixing sensitive data leak** - Removing secrets from history
 
 Always use `--force-with-lease` instead of `--force` when possible.
+
+Force push to main or master is never permitted under any of these conditions.
 
 ---
 
@@ -259,7 +263,7 @@ git fetch
 # Standard workflow (remember: prefix required for write operations)
 ALIUNDE_GIT_ADMIN=1 git add <files>
 ALIUNDE_GIT_ADMIN=1 git commit -m "message"
-ALIUNDE_GIT_ADMIN=1 git push  # (without --force)
+ALIUNDE_GIT_ADMIN=1 git push  # (without --force, to non-protected branches)
 git pull
 ALIUNDE_GIT_ADMIN=1 git checkout <branch>
 ALIUNDE_GIT_ADMIN=1 git switch <branch>
@@ -408,6 +412,7 @@ Before pushing any changes:
 | Skipping hooks | Bypasses quality gates | Fix the underlying issue |
 | Not pulling before push | Causes merge conflicts | Always pull first |
 | Git write commands without `ALIUNDE_GIT_ADMIN=1` | Hook blocks the command, circular redirect | Always prefix write commands with `ALIUNDE_GIT_ADMIN=1` |
+| Push to main to resolve a PR race condition | Race conditions feel urgent; direct push feels like a fix | Rebase the feature branch on updated main, force-push the feature branch (with confirmation), re-run CI, merge via PR |
 
 ---
 
