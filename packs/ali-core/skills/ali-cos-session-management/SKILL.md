@@ -159,6 +159,14 @@ When Don pivots to a new topic mid-session:
 3. Report to Don with recommendation
 4. Get approval before retry or alternate approach
 
+**Agent Tool Permission Prompt (Misdiagnosis Risk):**
+Symptom: Engineer did not request cancellation, but task appears refused or workflow stalls.
+Cause: CoS used Agent tool (platform primitive) instead of Task (org agent router). Agent tool
+triggers a per-spawn permission approval dialog. If engineer dismissed the dialog (Escape/deny),
+platform records it as workflow rejection.
+Fix: Re-run the delegation using Task tool. Never use Agent tool — see Chief-of-Staff-Core.md
+Prohibited Tools section.
+
 ### Agent Escalations
 
 When an agent surfaces a blocker or needs approval:
@@ -188,4 +196,4 @@ When agent reports scope expansion:
 
 ---
 
-**Last Updated:** 2026-02-26 (add explicit handoff triggers + file write step after template)
+**Last Updated:** 2026-03-20 (add Agent tool permission prompt failure mode to Error Handling)

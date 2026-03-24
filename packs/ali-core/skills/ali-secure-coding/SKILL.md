@@ -1766,7 +1766,7 @@ No arguments required. Claude Code scans the project in context and returns a st
 
 ### What It Detects
 
-- **OWASP Top 10 vulnerabilities** — injection, broken auth, sensitive data exposure, XXE, broken access control, security misconfiguration, XSS, insecure deserialization, known vulnerable components, insufficient logging
+- **OWASP Top 10 vulnerabilities** — injection (including XSS), identification and authentication failures, cryptographic failures, insecure design, security misconfiguration (including XXE), vulnerable and outdated components, broken access control, software and data integrity failures, security logging and monitoring failures, SSRF
 - **Data flow tracing** — follows untrusted input from entry point to output, flags unvalidated paths
 - **Authentication and authorization flaws** — missing checks, privilege escalation paths, session issues
 - **Secrets and credential exposure** — hardcoded API keys, tokens, passwords in source
