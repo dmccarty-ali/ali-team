@@ -199,6 +199,16 @@ The plan must include every section from the template. Pay special attention to 
 - Approval Checklist (one checkbox per phase)
 - Session Handoff (copy/paste prompt, ready to use)
 
+### VERIFY Flag Protocol
+
+Before writing any implementation-critical value to the plan, check: can this value be
+verified by reading a source file accessible during planning?
+- If YES: read the file, confirm the value, cite the file in the plan
+- If NO: write the value with a VERIFY: flag and the source file to check
+
+Full flag format, examples, and implementing agent contract:
+See: skills/plan-builder/references/verify-flag-protocol.md
+
 ### Step 5: Verify Completeness
 
 Before returning, self-check:
@@ -216,6 +226,9 @@ Before returning, self-check:
 - [ ] No absolute paths in the plan document itself
 - [ ] Phase sizing: max 3-5 tasks per implementation phase
 - [ ] Plan written to docs/plans/{feature-name}.md
+- [ ] All implementation-critical values that could be verified from accessible source files
+      during planning have been verified and cite the source file; values that could not
+      be verified carry a VERIFY: flag with the source file to check
 
 If any item is unchecked, fix it before returning.
 

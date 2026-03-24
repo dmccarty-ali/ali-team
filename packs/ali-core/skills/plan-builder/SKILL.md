@@ -40,7 +40,7 @@ keywords:
 
 # Plan Builder Skill
 
-This skill guides the main session (as CoS) through the plan-builder workflow. Plan-builder v2 is a two-mode design-first skill: design mode validates an approach before implement mode plans the execution.
+This skill guides the main session (as CoS) through the plan-builder workflow. Plan-builder is a two-mode design-first skill: design mode validates an approach before implement mode plans the execution.
 
 ---
 
@@ -94,19 +94,70 @@ Draft mode produces advisory output from a single reviewer pass. No iteration lo
 
 Design mode takes a feature brief and produces a validated design document.
 
-### STEP 1/4 — Draft Design Doc
+### STEP 1/5 — Draft Design Doc
 
 Spawn `ali-document-developer` to write the initial design document at `docs/feature/{name}/design.md` using the feature brief.
 
-### STEP 2/4 — Expert Review
+### STEP 2/5 — Blast Radius Gate (MANDATORY — runs before expert panel)
+
+**This gate is non-negotiable. Expert panel review cannot begin until the gate is passed.**
+
+Evaluate the design doc against the trigger conditions below. If any condition is met, the gate fires and all five questions must be answered in writing before proceeding to STEP 3.
+
+#### Gate Trigger Conditions
+
+The gate fires when the design involves changes to ANY of:
+- Hooks (`hooks/*.sh`) — especially anything with exit 2 (blocking behavior)
+- The hooks symlink or its deployment mechanism (`~/.claude/hooks → ~/ali-ai/hooks`)
+- Org-wide `settings.json` or `settings.local.json`
+- Migration scripts (`migrations/*.sh`)
+- Shared infrastructure (`sync-org-resources.sh`, `claude-ali` launcher, `install.sh`)
+- Any file that is immediately live across all projects without a per-project launch step
+
+If none of the above apply, record "Blast Radius Gate: NOT TRIGGERED — no org-wide infrastructure changes detected" in the design doc and proceed to STEP 3.
+
+#### Gate Questions (all five required)
+
+When the gate fires, `ali-document-developer` must add a **Blast Radius Analysis** section to `design.md` with explicit written answers to all of the following:
+
+1. **Scope:** Which projects and sessions are affected? Is this change per-project-on-launch (copy-on-launch) or instant-org-wide (symlink)?
+2. **Deployment speed:** How fast does this change reach live sessions? (symlink = instant across all running and future sessions; copy-on-launch = next `claude-ali` launch per project)
+3. **Blast radius if wrong:** What breaks if the implementation has a bug? How many projects and teams are affected?
+4. **Rollback path:** How is this change reverted if it causes an outage? How fast can rollback be completed?
+5. **Staging requirement:** Can this be tested in isolation before going org-wide? If yes, what is the staging plan?
+
+#### Blocking Hook Special Rule
+
+Any design that proposes exit 2 on a hook deployed via symlink (instant org-wide effect) **MUST include an isolation test plan** before the gate passes.
+
+- Exit 2 on a copy-on-launch hook: lower risk — staging plan recommended but not blocking
+- Exit 2 on a symlinked hook: **staging gate is REQUIRED** — the gate does not pass without it
+
+If the isolation test plan is absent, `ali-document-developer` must add it before STEP 3 begins. Do not proceed to expert panel with an unanswered gate.
+
+#### Gate Pass Condition
+
+The gate passes when all five questions are answered and (if applicable) the blocking hook staging requirement is satisfied. Gate status is recorded in the design doc as:
+
+```
+Blast Radius Gate: PASSED — [one-sentence summary of scope and deployment speed]
+```
+
+or
+
+```
+Blast Radius Gate: NOT TRIGGERED — no org-wide infrastructure changes detected
+```
+
+### STEP 3/5 — Expert Review
 
 Spawn domain experts (manifest score >=30) + `ali-technical-feasibility-expert` in parallel to review the design doc. Each expert writes findings to `docs/feature/{name}/expert-findings/design/{expert-name}-findings.md`. Experts return: filename + 2-sentence summary only (not full findings in context).
 
-### STEP 3/4 — Synthesis
+### STEP 4/5 — Synthesis
 
 Spawn `ali-merge-synthesis-expert` to merge expert findings from `docs/feature/{name}/expert-findings/design/` into `docs/feature/{name}/executive-summary.md`.
 
-### STEP 4/4 — Iterate Until Clean (or Draft advisory)
+### STEP 5/5 — Iterate Until Clean (or Draft advisory)
 
 **Default (iterate-until-clean):**
 
@@ -142,6 +193,16 @@ These criteria are passed verbatim to the reviewer in the delegation prompt. All
 4. **No open blocking issues:** no BLOCKING entries in reviewer verdict file
 5. **No unresolved open questions:** all Open Questions rows have Status: RESOLVED; any PENDING rows requiring human input trigger immediate user escalation (not an iteration cycle)
 6. **Scope boundaries present:** "What This Design Does Not Change" section is populated
+7. **Source references factually accurate:** Plan-agent must write claims about source
+   artifacts that are verifiable from the source or explicitly flagged VERIFY:. Plan-agent
+   habit: when making a factual claim about a source artifact, note the source file
+   parenthetically (per DATABASE_SCHEMA.sql) — this is a traceability habit, not a required
+   citation format.
+   Reviewer check: any claim in the design doc about a source artifact (syntax, structure,
+   count, schema shape) is either (a) not contradicted by the referenced file as read by
+   the reviewer, or (b) explicitly flagged with VERIFY: in the design doc; claims against
+   inaccessible source files are recorded as OPEN_QUESTIONS, not BLOCKING
+8. **Blast Radius Gate answered:** design doc contains either "Blast Radius Gate: PASSED" with all five questions answered, or "Blast Radius Gate: NOT TRIGGERED" with rationale. If the gate fired and any of the five questions is unanswered, or if a symlinked exit-2 hook lacks a staging plan, this criterion is BLOCKING.
 
 ---
 
@@ -192,6 +253,9 @@ Spawn codebase exploration agent (Anthropic Plan agent via Task tool with constr
 
 Spawn `ali-plan-agent` to write implementation plan at `docs/feature/{name}/plan.md` using the approved design doc and `codebase-context.md`.
 
+If any referenced source file exceeds 500 lines, apply the large-file protocol before
+the write step begins. See: skills/plan-builder/references/large-file-protocol.md
+
 ### STEP 3/3 — Iterate Until Clean (or Draft advisory)
 
 **Default (iterate-until-clean):**
@@ -225,6 +289,15 @@ These criteria are passed verbatim to the reviewer in the delegation prompt. All
 4. **Rollback plan exists:** each phase has a Rollback statement (N/A acceptable for Phase 0)
 5. **No dependency gaps:** each phase's pre-conditions are satisfiable from prior phases' outputs
 6. **Phase 0 exists:** first phase is validation-only with no code changes; design doc's acceptance criteria appear in at least one phase's verification checklist
+7. **Implementation-critical values cited:** Plan-agent must cite source files for all
+   implementation-critical values; values that cannot be verified during planning must
+   carry a VERIFY: flag with the source file name.
+   Reviewer check: all implementation-critical values in the plan (column names, function
+   signatures, API contracts, migration revision IDs, config keys, syntax blocks) include
+   a source file citation; prose descriptions without citation are present for
+   implementation-critical values only when accompanied by a VERIFY: flag;
+   unverified values carry a VERIFY: flag
+   (VERIFY-flagged values are WARNINGS, not BLOCKING)
 
 ---
 
@@ -339,7 +412,7 @@ User approves once at workflow start (initial ISPR). CoS then runs all steps aut
 
 ---
 
-**Version:** 3.2
+**Version:** 3.3
 **Created:** 2026-03-01
 **Replaces:** 2.1 (single-mode expert-panel pipeline)
-**Change:** Full two-mode design-first rewrite. Added design mode (feature brief → validated design doc), implement mode (approved design → implementation plan), iterate-until-clean loop with ali-plan-reviewer, safety valve at 5 cycles, draft mode advisory path, open question escalation. v3.1: Removed progress log — TaskList is the progress tracker. v3.2: Added Phase Sizing Criteria section, updated Implement Mode Clean Criterion 1 (activity-type split rule), replaced two-section Agent Model Tiers with unified model matrix (Mode column).
+**Change:** Full two-mode design-first rewrite. Added design mode (feature brief → validated design doc), implement mode (approved design → implementation plan), iterate-until-clean loop with ali-plan-reviewer, safety valve at 5 cycles, draft mode advisory path, open question escalation. v3.1: Removed progress log — TaskList is the progress tracker. v3.2: Added Phase Sizing Criteria section, updated Implement Mode Clean Criterion 1 (activity-type split rule), replaced two-section Agent Model Tiers with unified model matrix (Mode column). v3.3: Added Blast Radius Gate as STEP 2/5 in design mode (mandatory, fires before expert panel); added Design Mode Clean Criterion 8 (Blast Radius Gate answered); gate covers hooks, symlink deployment, org-wide settings, migrations, shared infrastructure; blocking hook special rule requires staging plan for exit-2 hooks deployed via symlink.
